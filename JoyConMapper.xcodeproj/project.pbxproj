@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EAF18BB954DEC3879C883AE /* Pods_JoyConMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A81B010E15FA122030A515 /* Pods_JoyConMapper.framework */; };
+		DD0AE2E522DAB13100B68F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */; };
+		DD0AE2E722DAB13100B68F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E622DAB13100B68F05 /* ViewController.swift */; };
+		DD0AE2EA22DAB13100B68F05 /* JoyConMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E822DAB13100B68F05 /* JoyConMapper.xcdatamodeld */; };
+		DD0AE2EC22DAB13200B68F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0AE2EB22DAB13200B68F05 /* Assets.xcassets */; };
+		DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0AE2ED22DAB13200B68F05 /* Main.storyboard */; };
+		DD0AE2F822DAF33100B68F05 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2F722DAF33100B68F05 /* DataManager.swift */; };
+		DD0AE2FA22DB1C1B00B68F05 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2F922DB1C1B00B68F05 /* GameController.swift */; };
+		DD0AE2FC22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */; };
+		DD0AE30622DC88CD00B68F05 /* ControllerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */; };
+		DD0AE30722DC88CD00B68F05 /* ControllerViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */; };
+		DD0AE30922DCA93F00B68F05 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE30822DCA93F00B68F05 /* Notifications.swift */; };
+		DD0AE7CD22E0BD8300B68F05 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */; };
+		DD0AE82F22E3744900B68F05 /* AppCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE82E22E3744900B68F05 /* AppCellView.swift */; };
+		DD0AE83922E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */; };
+		DD0AE86F22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */; };
+		DD0AE87122E634C500B68F05 /* ButtonNameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */; };
+		DD3A268622F9DA46005A82FF /* StickConfigCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */; };
+		DD41CFA322E9AD4100899D5D /* SpecialKeyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */; };
+		DD41CFD722EDFB8B00899D5D /* KeyConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */; };
+		DD41CFDD22EE173A00899D5D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFDC22EE173A00899D5D /* Utils.swift */; };
+		DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30DB8DAB7278361A4464596B /* Pods-JoyConMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyConMapper.debug.xcconfig"; path = "Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		74A81B010E15FA122030A515 /* Pods_JoyConMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JoyConMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0AE2E122DAB13100B68F05 /* JoyConMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyConMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD0AE2E622DAB13100B68F05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD0AE2E922DAB13100B68F05 /* JoyConMapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JoyConMapper.xcdatamodel; sourceTree = "<group>"; };
+		DD0AE2EB22DAB13200B68F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD0AE2EE22DAB13200B68F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD0AE2F022DAB13200B68F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD0AE2F122DAB13200B68F05 /* JoyConMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyConMapper.entitlements; sourceTree = "<group>"; };
+		DD0AE2F722DAF33100B68F05 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		DD0AE2F922DB1C1B00B68F05 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewItem.swift; sourceTree = "<group>"; };
+		DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerViewItem.xib; sourceTree = "<group>"; };
+		DD0AE30822DCA93F00B68F05 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
+		DD0AE82E22E3744900B68F05 /* AppCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellView.swift; sourceTree = "<group>"; };
+		DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
+		DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
+		DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNameCellView.swift; sourceTree = "<group>"; };
+		DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickConfigCellView.swift; sourceTree = "<group>"; };
+		DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialKeyName.swift; sourceTree = "<group>"; };
+		DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConfigViewController.swift; sourceTree = "<group>"; };
+		DD41CFDC22EE173A00899D5D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConfigComboBox.swift; sourceTree = "<group>"; };
+		FB5156E8AF3A62769EFB5553 /* Pods-JoyConMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyConMapper.release.xcconfig"; path = "Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD0AE2DE22DAB13100B68F05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EAF18BB954DEC3879C883AE /* Pods_JoyConMapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7165849BB23611CC6D049234 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74A81B010E15FA122030A515 /* Pods_JoyConMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		822205FE79640986B57D9BA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30DB8DAB7278361A4464596B /* Pods-JoyConMapper.debug.xcconfig */,
+				FB5156E8AF3A62769EFB5553 /* Pods-JoyConMapper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD0AE2D822DAB13100B68F05 = {
+			isa = PBXGroup;
+			children = (
+				DD0AE2E322DAB13100B68F05 /* JoyConMapper */,
+				DD0AE2E222DAB13100B68F05 /* Products */,
+				822205FE79640986B57D9BA4 /* Pods */,
+				7165849BB23611CC6D049234 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD0AE2E222DAB13100B68F05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD0AE2E122DAB13100B68F05 /* JoyConMapper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD0AE2E322DAB13100B68F05 /* JoyConMapper */ = {
+			isa = PBXGroup;
+			children = (
+				DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */,
+				DD0AE2F722DAF33100B68F05 /* DataManager.swift */,
+				DD0AE2F922DB1C1B00B68F05 /* GameController.swift */,
+				DD0AE2E622DAB13100B68F05 /* ViewController.swift */,
+				DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */,
+				DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */,
+				DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */,
+				DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */,
+				DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */,
+				DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */,
+				DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */,
+				DD0AE30822DCA93F00B68F05 /* Notifications.swift */,
+				DD0AE82E22E3744900B68F05 /* AppCellView.swift */,
+				DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */,
+				DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */,
+				DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */,
+				DD41CFDC22EE173A00899D5D /* Utils.swift */,
+				DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */,
+				DD0AE2ED22DAB13200B68F05 /* Main.storyboard */,
+				DD0AE2EB22DAB13200B68F05 /* Assets.xcassets */,
+				DD0AE2F022DAB13200B68F05 /* Info.plist */,
+				DD0AE2F122DAB13200B68F05 /* JoyConMapper.entitlements */,
+				DD0AE2E822DAB13100B68F05 /* JoyConMapper.xcdatamodeld */,
+			);
+			path = JoyConMapper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD0AE2E022DAB13100B68F05 /* JoyConMapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0AE2F422DAB13200B68F05 /* Build configuration list for PBXNativeTarget "JoyConMapper" */;
+			buildPhases = (
+				4CCDB801C3FB16B0491AD6DE /* [CP] Check Pods Manifest.lock */,
+				DD0AE2DD22DAB13100B68F05 /* Sources */,
+				DD0AE2DE22DAB13100B68F05 /* Frameworks */,
+				DD0AE2DF22DAB13100B68F05 /* Resources */,
+				721DFE3B8292D4548ED060B7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JoyConMapper;
+			productName = JoyConMapper;
+			productReference = DD0AE2E122DAB13100B68F05 /* JoyConMapper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD0AE2D922DAB13100B68F05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = DarkHorse;
+				TargetAttributes = {
+					DD0AE2E022DAB13100B68F05 = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = DD0AE2DC22DAB13100B68F05 /* Build configuration list for PBXProject "JoyConMapper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD0AE2D822DAB13100B68F05;
+			productRefGroup = DD0AE2E222DAB13100B68F05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD0AE2E022DAB13100B68F05 /* JoyConMapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD0AE2DF22DAB13100B68F05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0AE2EC22DAB13200B68F05 /* Assets.xcassets in Resources */,
+				DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */,
+				DD0AE30722DC88CD00B68F05 /* ControllerViewItem.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CCDB801C3FB16B0491AD6DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JoyConMapper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		721DFE3B8292D4548ED060B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD0AE2DD22DAB13100B68F05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0AE83922E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift in Sources */,
+				DD0AE2E722DAB13100B68F05 /* ViewController.swift in Sources */,
+				DD3A268622F9DA46005A82FF /* StickConfigCellView.swift in Sources */,
+				DD0AE2FA22DB1C1B00B68F05 /* GameController.swift in Sources */,
+				DD0AE7CD22E0BD8300B68F05 /* ControllerView.swift in Sources */,
+				DD0AE2F822DAF33100B68F05 /* DataManager.swift in Sources */,
+				DD0AE82F22E3744900B68F05 /* AppCellView.swift in Sources */,
+				DD41CFD722EDFB8B00899D5D /* KeyConfigViewController.swift in Sources */,
+				DD0AE86F22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift in Sources */,
+				DD0AE87122E634C500B68F05 /* ButtonNameCellView.swift in Sources */,
+				DD41CFDD22EE173A00899D5D /* Utils.swift in Sources */,
+				DD0AE30922DCA93F00B68F05 /* Notifications.swift in Sources */,
+				DD0AE30622DC88CD00B68F05 /* ControllerViewItem.swift in Sources */,
+				DD41CFA322E9AD4100899D5D /* SpecialKeyName.swift in Sources */,
+				DD0AE2E522DAB13100B68F05 /* AppDelegate.swift in Sources */,
+				DD0AE2EA22DAB13100B68F05 /* JoyConMapper.xcdatamodeld in Sources */,
+				DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */,
+				DD0AE2FC22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD0AE2ED22DAB13200B68F05 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD0AE2EE22DAB13200B68F05 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD0AE2F222DAB13200B68F05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD0AE2F322DAB13200B68F05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DD0AE2F522DAB13200B68F05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30DB8DAB7278361A4464596B /* Pods-JoyConMapper.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JoyConMapper/JoyConMapper.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				INFOPLIST_FILE = JoyConMapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.JoyConMapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD0AE2F622DAB13200B68F05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB5156E8AF3A62769EFB5553 /* Pods-JoyConMapper.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JoyConMapper/JoyConMapper.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				INFOPLIST_FILE = JoyConMapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.JoyConMapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD0AE2DC22DAB13100B68F05 /* Build configuration list for PBXProject "JoyConMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0AE2F222DAB13200B68F05 /* Debug */,
+				DD0AE2F322DAB13200B68F05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0AE2F422DAB13200B68F05 /* Build configuration list for PBXNativeTarget "JoyConMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0AE2F522DAB13200B68F05 /* Debug */,
+				DD0AE2F622DAB13200B68F05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD0AE2E822DAB13100B68F05 /* JoyConMapper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD0AE2E922DAB13100B68F05 /* JoyConMapper.xcdatamodel */,
+			);
+			currentVersion = DD0AE2E922DAB13100B68F05 /* JoyConMapper.xcdatamodel */;
+			path = JoyConMapper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DD0AE2D922DAB13100B68F05 /* Project object */;
+}
