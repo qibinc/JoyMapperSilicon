@@ -54,6 +54,29 @@ let stickerDirections: [JoyCon.StickDirection] = [
 let buttonNameColumnID = "buttonName"
 let buttonKeyColumnID = "buttonKey"
 
+class StickSpeedField: NSTextField {
+    var config: KeyConfig
+    var stick: JoyCon.Button
+    
+    init(frame frameRect: NSRect, config: KeyConfig, stick: JoyCon.Button) {
+        self.config = config
+        self.stick = stick
+        super.init(frame: frameRect)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func textDidEndEditing(_ notification: Notification) {
+        if self.stick == .LStick {
+            self.config.leftStick?.speed = self.floatValue
+        } else if self.stick == .RStick {
+            self.config.rightStick?.speed = self.floatValue
+        }
+    }
+}
+
 extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyConfigSetDelegate {
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         guard self.selectedKeyConfig != nil else { return 0 }
@@ -66,25 +89,19 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
 
             // Stick settings
             if controller.type == .JoyConL {
-                if config.leftStick?.type ?? "" == StickType.Key.rawValue {
-                    return 4
-                }
-                return 0
+                return self.numberOfChildItemOfStick(for: config.leftStick?.type)
             }
 
             if controller.type == .JoyConR {
-                if config.rightStick?.type ?? "" == StickType.Key.rawValue {
-                    return 4
-                }
-                return 0
+                return self.numberOfChildItemOfStick(for: config.rightStick?.type)
             }
 
             if controller.type == .ProController {
-                if stickIndex == 0 && config.leftStick?.type ?? "" == StickType.Key.rawValue {
-                    return 4
+                if stickIndex == 0 {
+                    return self.numberOfChildItemOfStick(for: config.leftStick?.type)
                 }
-                if stickIndex == 1 && config.rightStick?.type ?? "" == StickType.Key.rawValue {
-                    return 4
+                if stickIndex == 1 {
+                    return self.numberOfChildItemOfStick(for: config.rightStick?.type)
                 }
             }
 
@@ -100,6 +117,21 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         return 0
     }
     
+    func numberOfChildItemOfStick(for type: String?) -> Int {
+        guard let typeStr = type else { return 0 }
+        
+        switch(typeStr) {
+        case StickType.Key.rawValue:
+            return 4
+        case StickType.Mouse.rawValue:
+            return 1
+        case StickType.MouseWheel.rawValue:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         guard let controller = self.selectedController else { return false }
         guard let config = self.selectedKeyConfig else { return false }
@@ -113,23 +145,33 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         }
         
         if controller.type == .JoyConL {
-            return config.leftStick?.type ?? "" == StickType.Key.rawValue
+            return self.isStickItemExpandable(for: config.leftStick?.type)
         }
         
         if controller.type == .JoyConR {
-            return config.rightStick?.type ?? "" == StickType.Key.rawValue
+            return self.isStickItemExpandable(for: config.rightStick?.type)
         }
         
         if controller.type == .ProController {
             if stickIndex == 0 {
-                return config.leftStick?.type ?? "" == StickType.Key.rawValue
+                return self.isStickItemExpandable(for: config.leftStick?.type)
             }
             if stickIndex == 1 {
-                return config.rightStick?.type ?? "" == StickType.Key.rawValue
+                return self.isStickItemExpandable(for: config.rightStick?.type)
             }
         }
         
         return false
+    }
+    
+    func isStickItemExpandable(for type: String?) -> Bool {
+        guard let typeString = type else { return false }
+        
+        if typeString == StickType.None.rawValue {
+            return false
+        }
+        
+        return true
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
@@ -164,7 +206,6 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
     }
     
     func stickDirectionView(stick: JoyCon.Button, column: NSTableColumn, row: Int) -> NSView? {
-        guard let controller = self.selectedController else { return nil }
         guard let keyConfig = self.selectedKeyConfig else { return nil }
         
         var stickConfig: StickConfig
@@ -204,12 +245,15 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             let selection = NSPopUpButton(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size))
             selection.addItem(withTitle: StickType.Key.rawValue) // TODO: i18n
             selection.addItem(withTitle: StickType.Mouse.rawValue)
+            selection.addItem(withTitle: StickType.MouseWheel.rawValue)
             selection.addItem(withTitle: StickType.None.rawValue)
             
             if stickConfig.type == StickType.Mouse.rawValue {
                 selection.selectItem(at: 1)
-            } else if stickConfig.type == StickType.None.rawValue {
+            } else if stickConfig.type == StickType.MouseWheel.rawValue {
                 selection.selectItem(at: 2)
+            } else if stickConfig.type == StickType.None.rawValue {
+                selection.selectItem(at: 3)
             } else {
                 // Default: .Key
                 selection.selectItem(at: 0)
@@ -223,6 +267,74 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             selection.target = self
                 
             return selection
+        }
+        
+        return nil
+    }
+    
+    func stickChildView(stick: JoyCon.Button, column: NSTableColumn, row: Int) -> NSView? {
+        guard let config = self.selectedKeyConfig else { return nil }
+
+        var type: String
+        if stick == .LStick {
+            guard let typeString = config.leftStick?.type else { return nil }
+            type = typeString
+        } else if stick == .RStick {
+            guard let typeString = config.rightStick?.type else { return nil }
+            type = typeString
+        } else {
+            return nil
+        }
+        
+        if type == StickType.Key.rawValue {
+            return self.stickDirectionKeyView(stick: stick, column: column, row: row)
+        } else if type == StickType.Mouse.rawValue || type == StickType.MouseWheel.rawValue {
+            return self.stickMouseView(stick: stick, column: column, row: row)
+        }
+        
+        return nil
+    }
+    
+    func stickMouseView(stick: JoyCon.Button, column: NSTableColumn, row: Int) -> NSView? {
+        guard self.selectedController != nil else { return nil }
+        guard let keyConfig = self.selectedKeyConfig else { return nil }
+
+        var stickConfig: StickConfig
+        if stick == .LStick {
+            guard let conf = keyConfig.leftStick else { return nil }
+            stickConfig = conf
+        } else if stick == .RStick {
+            guard let conf = keyConfig.rightStick else { return nil }
+            stickConfig = conf
+        } else {
+            return nil
+        }
+        
+        if column.identifier.rawValue == buttonNameColumnID {
+            guard let itemView = self.configTableView.makeView(withIdentifier: column.identifier, owner: self) as? ButtonNameCellView else {
+                return nil
+            }
+
+            let view = NSTextView(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size))
+            view.isEditable = false
+            view.font = itemView.buttonName.font
+            view.string = "Speed" // TODO: i18n
+            
+            return view
+        }
+        
+        if column.identifier.rawValue == buttonKeyColumnID {
+            guard let itemView = self.configTableView.makeView(withIdentifier: column.identifier, owner: self) as? NSTableCellView else {
+                return nil
+            }
+                        
+            let field = StickSpeedField(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size), config: keyConfig, stick: stick)
+            field.floatValue = stickConfig.speed
+            field.isEditable = true
+            field.formatter = NumberFormatter()
+            field.alignment = .right
+            
+            return field
         }
         
         return nil
@@ -286,7 +398,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         guard let column = tableColumn else { return nil }
 
         if let (stickButton, stickIndex) = item as? (JoyCon.Button, Int) {
-            return self.stickDirectionKeyView(stick: stickButton, column: column, row: stickIndex)
+            return self.stickChildView(stick: stickButton, column: column, row: stickIndex)
         }
 
         guard let row = item as? Int else { return nil }
@@ -354,10 +466,25 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             guard rowIndex < buttons.count else { return }
             let button = buttons[rowIndex]
             self.didDoubleClick(button: button)
+            return
         }
+        
         if let (stick, rowIndex) = item as? (JoyCon.Button, Int) {
-            let direction = stickerDirections[rowIndex]
-            self.didDoubleClick(stick: stick, direction: direction)
+            let type: String
+            if stick == .LStick {
+                guard let typeString = self.selectedKeyConfig?.leftStick?.type else { return }
+                type = typeString
+            } else if stick == .RStick {
+                guard let typeString = self.selectedKeyConfig?.rightStick?.type else { return }
+                type = typeString
+            } else {
+                return
+            }
+            
+            if type == StickType.Key.rawValue {
+                let direction = stickerDirections[rowIndex]
+                self.didDoubleClick(stick: stick, direction: direction)
+            }
             return
         }
     }
@@ -483,5 +610,15 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         keyMapData.isEnabled = sender.state == .on
         
         controller.updateKeyMap()
+    }
+    
+    @objc func leftStickSpeedDidChange(_ sender: NSTextField) {
+        guard let config = self.selectedKeyConfig else { return }
+        config.leftStick?.speed = sender.floatValue
+    }
+    
+    @objc func rightStickSpeedDidChange(_ sender: NSTextField) {
+        guard let config = self.selectedKeyConfig else { return }
+        config.rightStick?.speed = sender.floatValue
     }
 }

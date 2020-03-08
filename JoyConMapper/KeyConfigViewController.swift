@@ -102,7 +102,6 @@ class KeyConfigViewController: ViewController, NSComboBoxDelegate, KeyConfigComb
         } else {
             keyMap.keyCode = -1
             keyMap.mouseButton = Int16(self.mouseAction.selectedTag())
-            Swift.print("selectedTag: \(self.mouseAction.selectedTag())")
         }
         
         self.delegate?.setKeyConfig(controller: self)

@@ -34,6 +34,17 @@ class GameController {
     var isLeftDragging: Bool = false
     var isRightDragging: Bool = false
     var isCenterDragging: Bool = false
+    
+    var lastAccess: Date? = nil
+    var timer: Timer? = nil
+    var icon: NSImage? {
+        if self._icon == nil {
+            self.updateControllerIcon()
+        }
+
+        return self._icon
+    }
+    private var _icon: NSImage?
 
     init(data: ControllerData) {
         self.data = data
@@ -77,6 +88,8 @@ class GameController {
         }
     }
     
+    // MARK: - Controller event handlers
+    
     func setControllerHandler() {
         guard let controller = self.controller else { return }
         
@@ -101,25 +114,31 @@ class GameController {
         controller.rightStickPosHandler = { [weak self] pos in
             self?.rightStickPosHandler(pos: pos)
         }
+        controller.batteryChangeHandler = { [weak self] newState, oldState in
+            self?.batteryChangeHandler(newState: newState, oldState: oldState)
+        }
+        controller.isChargingChangeHandler = { [weak self] isCharging in
+            self?.isChargingChangeHandler(isCharging: isCharging)
+        }
         
         // Update Controller data
         
         self.data.type = controller.type.rawValue
         self.type = controller.type
-        Swift.print("self.data.type: \(self.data.type)")
-        Swift.print("bodyColor: \(controller.bodyColor)")
-        Swift.print("buttonColor: \(controller.buttonColor)")
 
         let bodyColor = NSColor(cgColor: controller.bodyColor)!
         self.data.bodyColor = try! NSKeyedArchiver.archivedData(withRootObject: bodyColor, requiringSecureCoding: false)
+        self.bodyColor = bodyColor
         
         let buttonColor = NSColor(cgColor: controller.buttonColor)!
         self.data.buttonColor = try! NSKeyedArchiver.archivedData(withRootObject: buttonColor, requiringSecureCoding: false)
+        self.buttonColor = buttonColor
         
         self.data.leftGripColor = nil
         if let leftGripColor = controller.leftGripColor {
             if let nsLeftGripColor = NSColor(cgColor: leftGripColor) {
                 self.data.leftGripColor = try? NSKeyedArchiver.archivedData(withRootObject: nsLeftGripColor, requiringSecureCoding: false)
+                self.leftGripColor = nsLeftGripColor
             }
         }
         
@@ -127,6 +146,7 @@ class GameController {
         if let rightGripColor = controller.rightGripColor {
             if let nsRightGripColor = NSColor(cgColor: rightGripColor) {
                 self.data.rightGripColor = try? NSKeyedArchiver.archivedData(withRootObject: nsRightGripColor, requiringSecureCoding: false)
+                self.rightGripColor = nsRightGripColor
             }
         }
     }
@@ -230,6 +250,18 @@ class GameController {
         }
     }
     
+    func stickMouseWheelHandler(pos: CGPoint, speed: CGFloat) {
+        if pos.x == 0 && pos.y == 0 {
+            return
+        }
+        let wheelX = Int32(pos.x * speed)
+        let wheelY = Int32(pos.y * speed)
+        
+        let source = CGEventSource(stateID: .hidSystemState)
+        let event = CGEvent(scrollWheelEvent2Source: source, units: .pixel, wheelCount: 2, wheel1: wheelY, wheel2: wheelX, wheel3: 0)
+        event?.post(tap: .cghidEventTap)
+    }
+    
     func leftStickHandler(newDirection: JoyCon.StickDirection, oldDirection: JoyCon.StickDirection) {
         if self.currentLStickMode == .Key {
             if let config = self.currentLStickConfig[oldDirection] {
@@ -253,21 +285,50 @@ class GameController {
     }
 
     func leftStickPosHandler(pos: CGPoint) {
+        let speed = CGFloat(self.currentConfigData.leftStick?.speed ?? 0)
         if self.currentLStickMode == .Mouse {
-            let speed = CGFloat(self.currentConfigData.leftStick?.speed ?? 0)
             self.stickMouseHandler(pos: pos, speed: speed)
+        } else if self.currentLStickMode == .MouseWheel {
+            self.stickMouseWheelHandler(pos: pos, speed: speed)
         }
     }
     
     func rightStickPosHandler(pos: CGPoint) {
+        let speed = CGFloat(self.currentConfigData.rightStick?.speed ?? 0)
         if self.currentRStickMode == .Mouse {
-            let speed = CGFloat(self.currentConfigData.rightStick?.speed ?? 0)
             self.stickMouseHandler(pos: pos, speed: speed)
+        } else if self.currentRStickMode == .MouseWheel {
+            self.stickMouseWheelHandler(pos: pos, speed: speed)
         }
     }
     
+    func batteryChangeHandler(newState: JoyCon.BatteryStatus, oldState: JoyCon.BatteryStatus) {
+        self.updateControllerIcon()
+
+        DispatchQueue.main.async {
+            guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            delegate.updateControllersMenu()
+        }
+    }
+    
+    func isChargingChangeHandler(isCharging: Bool) {
+        self.updateControllerIcon()
+
+        DispatchQueue.main.async {
+            guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            delegate.updateControllersMenu()
+        }
+    }
+    
+    // MARK: - Controller Icon
+    
+    func updateControllerIcon() {
+        self._icon = GameControllerIcon(for: self)
+    }
+    
+    // MARK: -
+    
     func switchApp(bundleID: String) {
-        Swift.print("switchApp")
         let appConfig = self.data.appConfigs?.first(where: {
             guard let appConfig = $0 as? AppConfig else { return false }
             return appConfig.app?.bundleID == bundleID
@@ -285,7 +346,6 @@ class GameController {
     }
     
     func updateKeyMap() {
-        Swift.print("updateKeyMap")
         var newKeyMap: [JoyCon.Button:KeyMap] = [:]
         self.currentConfigData.keyMaps?.enumerateObjects { (map, _) in
             guard let keyMap = map as? KeyMap else { return }
@@ -381,7 +441,37 @@ class GameController {
         self.data.removeFromAppConfigs(app)
     }
     
-    func disconnect() {        
+    func disconnect() {
+        self.stopTimer()
         self.controller?.setHCIState(state: .disconnect)
+    }
+    
+    // MARK: - Timer
+
+    func updateAccessTime() {
+        self.lastAccess = Date(timeIntervalSinceNow: 0)
+    }
+    
+    func startTimer() {
+        self.stopTimer()
+        
+        // TODO: Let users change the time
+        let disconnectTime: TimeInterval = 5 * 60 // 5 min
+        
+        let checkInterval: TimeInterval = 1 * 60 // 1 min
+        self.timer = Timer.scheduledTimer(withTimeInterval: checkInterval, repeats: true) { [weak self] _ in
+            guard let lastAccess = self?.lastAccess else { return }
+            
+            let now = Date(timeIntervalSinceNow: 0)
+            if now.timeIntervalSince(lastAccess) > disconnectTime {
+                self?.disconnect()
+            }
+        }
+        self.updateAccessTime()
+    }
+    
+    func stopTimer() {
+        self.timer?.invalidate()
+        self.timer = nil
     }
 }

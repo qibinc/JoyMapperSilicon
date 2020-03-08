@@ -24,8 +24,7 @@ extension ViewController: NSCollectionViewDelegate, NSCollectionViewDataSource {
         guard controllers.count > index else { return item }
         let controller = controllers[index]
 
-        let image = NSImage(named: "GenericApplicationIcon")
-        controllerItem.iconView.image = image
+        controllerItem.iconView.image = controller.icon
         controllerItem.controller = controller
         controllerItem.label.stringValue = controller.controller != nil ? "Connected" : "Not connected"
         

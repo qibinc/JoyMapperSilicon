@@ -107,11 +107,13 @@ class ViewController: NSViewController {
         guard let controller = self.selectedController else { return }
         
         let panel = NSOpenPanel()
+        panel.message = NSLocalizedString("Choose an app to add", comment: "Choosing app message")
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         panel.canCreateDirectories = false
         panel.canChooseFiles = true
         panel.allowedFileTypes = ["app"]
+        panel.directoryURL = URL(fileURLWithPath: "/Applications")
         panel.begin { [weak self] response in
             if response == .OK {
                 guard let url = panel.url else { return }
@@ -175,4 +177,3 @@ class ViewController: NSViewController {
         }
     }
 }
-

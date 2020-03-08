@@ -11,6 +11,7 @@ import JoyConSwift
 
 enum StickType: String {
     case Mouse = "Mouse"
+    case MouseWheel = "Mouse Wheel"
     case Key = "Key"
     case None = "None"
 }
