@@ -68,6 +68,7 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(controllerRemoved), name: .controllerRemoved, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(controllerConnected), name: .controllerConnected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(controllerDisconnected), name: .controllerDisconnected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(controllerIconChanged), name: .controllerIconChanged, object: nil)
     }
     
     override func viewDidDisappear() {
@@ -79,6 +80,8 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    // MARK: - Apps
     
     @IBAction func clickAppSegmentButton(_ sender: NSSegmentedControl) {
         let selectedSegment = sender.selectedSegment
@@ -142,6 +145,8 @@ class ViewController: NSViewController {
         }
     }
     
+    // MARK: - Controllers
+    
     @objc func controllerAdded() {
         DispatchQueue.main.async { [weak self] in
             self?.controllerCollectionView.reloadData()
@@ -175,5 +180,21 @@ class ViewController: NSViewController {
             }
             self?.controllerCollectionView.reloadData()
         }
+    }
+    
+    @objc func controllerIconChanged(_ notification: NSNotification) {
+        guard let gameController = notification.object as? GameController else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.controllerCollectionView.reloadData()
+        }
+    }
+    
+    // MARK: - Options
+    
+    @IBAction func didPushOptions(_ sender: NSButton) {
+        guard let controller = self.storyboard?.instantiateController(withIdentifier: "AppSettingsViewController") as? AppSettingsViewController else { return }
+        
+        self.presentAsSheet(controller)
     }
 }

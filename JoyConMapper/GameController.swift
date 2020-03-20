@@ -8,6 +8,15 @@
 
 import JoyConSwift
 
+let batteryStringMap: [JoyCon.BatteryStatus: String] = [
+    .empty: "Empty",
+    .critical: "Critical",
+    .low: "Low",
+    .medium: "Medium",
+    .full: "Full",
+    .unknown: "Unknown"
+]
+
 class GameController {
     let data: ControllerData
 
@@ -31,6 +40,7 @@ class GameController {
     var currentRStickMode: StickType = .None
     var currentRStickConfig: [JoyCon.StickDirection:KeyMap] = [:]
 
+    var isEnabled: Bool = true
     var isLeftDragging: Bool = false
     var isRightDragging: Bool = false
     var isCenterDragging: Bool = false
@@ -45,6 +55,14 @@ class GameController {
         return self._icon
     }
     private var _icon: NSImage?
+    
+    var batteryString: String {
+        let battery = self.controller?.battery ?? .unknown
+        return batteryStringMap[battery] ?? "Unknown"
+    }
+    var localizedBatteryString: String {
+        return NSLocalizedString(self.batteryString, comment: "BatteryString")
+    }
 
     init(data: ControllerData) {
         self.data = data
@@ -100,20 +118,26 @@ class GameController {
             self?.buttonPressHandler(button: button)
         }
         controller.buttonReleaseHandler = { [weak self] button in
+            if !(self?.isEnabled ?? false) { return }
             self?.buttonReleaseHandler(button: button)
         }
         controller.leftStickHandler = { [weak self] (newDir, oldDir) in
+            if !(self?.isEnabled ?? false) { return }
             self?.leftStickHandler(newDirection: newDir, oldDirection: oldDir)
         }
         controller.rightStickHandler = { [weak self] (newDir, oldDir) in
+            if !(self?.isEnabled ?? false) { return }
             self?.rightStickHandler(newDirection: newDir, oldDirection: oldDir)
         }
         controller.leftStickPosHandler = { [weak self] pos in
+            if !(self?.isEnabled ?? false) { return }
             self?.leftStickPosHandler(pos: pos)
         }
         controller.rightStickPosHandler = { [weak self] pos in
+            if !(self?.isEnabled ?? false) { return }
             self?.rightStickPosHandler(pos: pos)
         }
+
         controller.batteryChangeHandler = { [weak self] newState, oldState in
             self?.batteryChangeHandler(newState: newState, oldState: oldState)
         }
@@ -157,8 +181,6 @@ class GameController {
     }
     
     func buttonPressHandler(config: KeyMap) {
-        guard config.isEnabled else { return }
-        
         let source = CGEventSource(stateID: .hidSystemState)
 
         if config.keyCode >= 0 {
@@ -194,8 +216,6 @@ class GameController {
     }
     
     func buttonReleaseHandler(config: KeyMap) {
-        guard config.isEnabled else { return }
-        
         let source = CGEventSource(stateID: .hidSystemState)
         
         if config.keyCode >= 0 {
@@ -304,6 +324,19 @@ class GameController {
     
     func batteryChangeHandler(newState: JoyCon.BatteryStatus, oldState: JoyCon.BatteryStatus) {
         self.updateControllerIcon()
+        
+        if newState == .full && oldState != .unknown {
+            AppNotifications.notifyBatteryFullCharge(self)
+        }
+        if newState == .empty {
+            AppNotifications.notifyBatteryLevel(self)
+        }
+        if newState == .critical && oldState != .empty {
+            AppNotifications.notifyBatteryLevel(self)
+        }
+        if newState == .low && oldState != .critical && oldState != .empty {
+            AppNotifications.notifyBatteryLevel(self)
+        }
 
         DispatchQueue.main.async {
             guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
@@ -313,6 +346,12 @@ class GameController {
     
     func isChargingChangeHandler(isCharging: Bool) {
         self.updateControllerIcon()
+        
+        if isCharging {
+            AppNotifications.notifyStartCharge(self)
+        } else {
+            AppNotifications.notifyStopCharge(self)
+        }
 
         DispatchQueue.main.async {
             guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
@@ -324,6 +363,7 @@ class GameController {
     
     func updateControllerIcon() {
         self._icon = GameControllerIcon(for: self)
+        NotificationCenter.default.post(name: .controllerIconChanged, object: self)
     }
     
     // MARK: -
@@ -441,7 +481,11 @@ class GameController {
         self.data.removeFromAppConfigs(app)
     }
     
-    func disconnect() {
+    @objc func toggleEnableKeyMappings() {
+        
+    }
+    
+    @objc func disconnect() {
         self.stopTimer()
         self.controller?.setHCIState(state: .disconnect)
     }

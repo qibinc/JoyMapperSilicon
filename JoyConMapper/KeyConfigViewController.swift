@@ -13,7 +13,7 @@ protocol KeyConfigSetDelegate {
     func setKeyConfig(controller: KeyConfigViewController)
 }
 
-class KeyConfigViewController: ViewController, NSComboBoxDelegate, KeyConfigComboBoxDelegate {
+class KeyConfigViewController: NSViewController, NSComboBoxDelegate, KeyConfigComboBoxDelegate {
     var delegate: KeyConfigSetDelegate?
     var keyMap: KeyMap?
     var keyCode: Int16 = -1

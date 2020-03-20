@@ -14,6 +14,10 @@ let mouseButtonNames: [String] = [
     "Right Click",
     "Center Click"
 ]
+let localizedMouseButtonNames = mouseButtonNames.map {
+    NSLocalizedString($0, comment: $0)
+}
+let none = NSLocalizedString("none", comment: "none")
 
 func convertModifierKeys(_ modifiers: NSEvent.ModifierFlags) -> String {
     var keyName = ""
@@ -33,7 +37,7 @@ func convertModifierKeys(_ modifiers: NSEvent.ModifierFlags) -> String {
 }
 
 func convertKeyName(keyMap: KeyMap?) -> String {
-    guard let map = keyMap else { return "none" }
+    guard let map = keyMap else { return none }
 
     let modifiers = convertModifierKeys(NSEvent.ModifierFlags(rawValue: UInt(map.modifiers)))
 
@@ -43,18 +47,18 @@ func convertKeyName(keyMap: KeyMap?) -> String {
     }
     
     if map.mouseButton >= 0 {
-        let buttonName = mouseButtonNames[Int(map.mouseButton)]
+        let buttonName = localizedMouseButtonNames[Int(map.mouseButton)]
         if modifiers != "" {
             return "\(modifiers) + \(buttonName)"
         }
         return buttonName
     }
     
-    return "none"
+    return none
 }
 
 func getKeyName(keyCode: UInt16) -> String {
-    if let specialKey = SpecialKeyName[Int(keyCode)] {
+    if let specialKey = LocalizedSpecialKeyName[Int(keyCode)] {
         return specialKey
     }
     let maxNameLength = 4
@@ -64,7 +68,7 @@ func getKeyName(keyCode: UInt16) -> String {
     let keyboardType = UInt32(LMGetKbdType())
     let source = TISCopyCurrentKeyboardLayoutInputSource().takeRetainedValue()
     guard let ptr = TISGetInputSourceProperty(source, kTISPropertyUnicodeKeyLayoutData) else {
-        return "none"
+        return none
     }
     let layoutData = Unmanaged<CFData>.fromOpaque(ptr).takeUnretainedValue() as Data
     layoutData.withUnsafeBytes {

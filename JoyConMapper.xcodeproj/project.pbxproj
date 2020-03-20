@@ -30,7 +30,27 @@
 		DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */; };
 		DD8744732412941B00B3AB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8744722412941B00B3AB11 /* Assets.xcassets */; };
 		DD8744752413C20400B3AB11 /* GameControllerIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8744742413C20400B3AB11 /* GameControllerIcon.swift */; };
+		DD87447D241495A700B3AB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD87447C241495A700B3AB11 /* AppDelegate.swift */; };
+		DD874481241495A900B3AB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD874480241495A900B3AB11 /* Assets.xcassets */; };
+		DD874487241495A900B3AB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD874485241495A900B3AB11 /* Main.storyboard */; };
+		DD87448E2414B8B400B3AB11 /* JoyConMapperLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD87447A241495A700B3AB11 /* JoyConMapperLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD89367724194DE1000A52C0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89367624194DE1000A52C0 /* AppSettings.swift */; };
+		DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC3B3F24151C350022FF32 /* AppNotifications.swift */; };
+		DDAC3B54241802C50022FF32 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DD87448D2414B89600B3AB11 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				DD87448E2414B8B400B3AB11 /* JoyConMapperLauncher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		30DB8DAB7278361A4464596B /* Pods-JoyConMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyConMapper.debug.xcconfig"; path = "Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +80,15 @@
 		DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConfigComboBox.swift; sourceTree = "<group>"; };
 		DD8744722412941B00B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD8744742413C20400B3AB11 /* GameControllerIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIcon.swift; sourceTree = "<group>"; };
+		DD87447A241495A700B3AB11 /* JoyConMapperLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyConMapperLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD87447C241495A700B3AB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD874480241495A900B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD874486241495A900B3AB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD874488241495A900B3AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD874489241495A900B3AB11 /* JoyConMapperLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyConMapperLauncher.entitlements; sourceTree = "<group>"; };
+		DD89367624194DE1000A52C0 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		DDAC3B3F24151C350022FF32 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 		FB5156E8AF3A62769EFB5553 /* Pods-JoyConMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyConMapper.release.xcconfig"; path = "Target Support Files/Pods-JoyConMapper/Pods-JoyConMapper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +98,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAF18BB954DEC3879C883AE /* Pods_JoyConMapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD874477241495A700B3AB11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0AE2E322DAB13100B68F05 /* JoyConMapper */,
+				DD87447B241495A700B3AB11 /* JoyConMapperLauncher */,
 				DD0AE2E222DAB13100B68F05 /* Products */,
 				822205FE79640986B57D9BA4 /* Pods */,
 				7165849BB23611CC6D049234 /* Frameworks */,
@@ -106,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0AE2E122DAB13100B68F05 /* JoyConMapper.app */,
+				DD87447A241495A700B3AB11 /* JoyConMapperLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */,
+				DD89367624194DE1000A52C0 /* AppSettings.swift */,
+				DDAC3B3F24151C350022FF32 /* AppNotifications.swift */,
 				DD0AE2F722DAF33100B68F05 /* DataManager.swift */,
 				DD0AE2F922DB1C1B00B68F05 /* GameController.swift */,
 				DD8744742413C20400B3AB11 /* GameControllerIcon.swift */,
@@ -121,6 +161,7 @@
 				DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */,
 				DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */,
 				DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */,
+				DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */,
 				DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */,
 				DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */,
 				DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */,
@@ -141,6 +182,18 @@
 			path = JoyConMapper;
 			sourceTree = "<group>";
 		};
+		DD87447B241495A700B3AB11 /* JoyConMapperLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				DD87447C241495A700B3AB11 /* AppDelegate.swift */,
+				DD874480241495A900B3AB11 /* Assets.xcassets */,
+				DD874485241495A900B3AB11 /* Main.storyboard */,
+				DD874488241495A900B3AB11 /* Info.plist */,
+				DD874489241495A900B3AB11 /* JoyConMapperLauncher.entitlements */,
+			);
+			path = JoyConMapperLauncher;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +206,7 @@
 				DD0AE2DE22DAB13100B68F05 /* Frameworks */,
 				DD0AE2DF22DAB13100B68F05 /* Resources */,
 				721DFE3B8292D4548ED060B7 /* [CP] Embed Pods Frameworks */,
+				DD87448D2414B89600B3AB11 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -163,13 +217,30 @@
 			productReference = DD0AE2E122DAB13100B68F05 /* JoyConMapper.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD874479241495A700B3AB11 /* JoyConMapperLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD87448A241495A900B3AB11 /* Build configuration list for PBXNativeTarget "JoyConMapperLauncher" */;
+			buildPhases = (
+				DD874476241495A700B3AB11 /* Sources */,
+				DD874477241495A700B3AB11 /* Frameworks */,
+				DD874478241495A700B3AB11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JoyConMapperLauncher;
+			productName = JoyConMapperLauncher;
+			productReference = DD87447A241495A700B3AB11 /* JoyConMapperLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DD0AE2D922DAB13100B68F05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = DarkHorse;
 				TargetAttributes = {
@@ -180,6 +251,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					DD874479241495A700B3AB11 = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
@@ -197,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				DD0AE2E022DAB13100B68F05 /* JoyConMapper */,
+				DD874479241495A700B3AB11 /* JoyConMapperLauncher */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +284,15 @@
 				DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */,
 				DD8744732412941B00B3AB11 /* Assets.xcassets in Resources */,
 				DD0AE30722DC88CD00B68F05 /* ControllerViewItem.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD874478241495A700B3AB11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD874487241495A900B3AB11 /* Main.storyboard in Resources */,
+				DD874481241495A900B3AB11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +358,23 @@
 				DD41CFDD22EE173A00899D5D /* Utils.swift in Sources */,
 				DD0AE30922DCA93F00B68F05 /* Notifications.swift in Sources */,
 				DD0AE30622DC88CD00B68F05 /* ControllerViewItem.swift in Sources */,
+				DD89367724194DE1000A52C0 /* AppSettings.swift in Sources */,
 				DD41CFA322E9AD4100899D5D /* SpecialKeyName.swift in Sources */,
+				DDAC3B54241802C50022FF32 /* AppSettingsViewController.swift in Sources */,
 				DD0AE2E522DAB13100B68F05 /* AppDelegate.swift in Sources */,
 				DD8744752413C20400B3AB11 /* GameControllerIcon.swift in Sources */,
+				DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */,
 				DD0AE2EA22DAB13100B68F05 /* JoyConMapper.xcdatamodeld in Sources */,
 				DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */,
 				DD0AE2FC22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD874476241495A700B3AB11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD87447D241495A700B3AB11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +385,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD0AE2EE22DAB13200B68F05 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD874485241495A900B3AB11 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD874486241495A900B3AB11 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -418,7 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JoyConMapper/JoyConMapper.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = EF37D6UQZ9;
@@ -439,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JoyConMapper/JoyConMapper.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = EF37D6UQZ9;
@@ -449,6 +552,54 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.JoyConMapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DD87448B241495A900B3AB11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JoyConMapperLauncher/JoyConMapperLauncher.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = JoyConMapperLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.JoyConMapperLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD87448C241495A900B3AB11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JoyConMapperLauncher/JoyConMapperLauncher.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = EF37D6UQZ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = JoyConMapperLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.0spec.JoyConMapperLauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -471,6 +622,15 @@
 			buildConfigurations = (
 				DD0AE2F522DAB13200B68F05 /* Debug */,
 				DD0AE2F622DAB13200B68F05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD87448A241495A900B3AB11 /* Build configuration list for PBXNativeTarget "JoyConMapperLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD87448B241495A900B3AB11 /* Debug */,
+				DD87448C241495A900B3AB11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -90,6 +90,45 @@ class DataManager: NSObject {
         
         return true
     }
+    
+    func saveDataFile(to url: URL) -> Bool {
+        var result: Bool = false
+        do {
+            let store = try self.container.persistentStoreCoordinator.addPersistentStore(ofType: NSBinaryStoreType, configurationName: nil, at: url, options: nil)
+            result = self.save()
+            try self.container.persistentStoreCoordinator.remove(store)
+        } catch {
+            let nserror = error as NSError
+            NSApplication.shared.presentError(nserror)
+        }
+        
+        return result
+    }
+    
+    func loadDataFile<T>(from url: URL, request: NSFetchRequest<T>) -> [T]? {
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.container.managedObjectModel)
+        do {
+            // TODO: Set options
+            try coordinator.addPersistentStore(ofType: NSBinaryStoreType, configurationName: nil, at: url, options: nil)
+        } catch {
+            let nserror = error as NSError
+            NSApplication.shared.presentError(nserror)
+
+            return nil
+        }
+
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        context.persistentStoreCoordinator = coordinator
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            let nserror = error as NSError
+            NSApplication.shared.presentError(nserror)
+        }
+
+        return nil
+    }
 
     // MARK: - ControllerData
     

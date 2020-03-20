@@ -82,3 +82,7 @@ let SpecialKeyName: [Int:String] = [
     kVK_DownArrow: "↓",
     kVK_UpArrow: "↑"
 ]
+
+let LocalizedSpecialKeyName = SpecialKeyName.mapValues {
+    NSLocalizedString($0, comment: $0)
+}

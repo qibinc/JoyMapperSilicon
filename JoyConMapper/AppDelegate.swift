@@ -7,10 +7,14 @@
 //
 
 import AppKit
+import ServiceManagement
+import UserNotifications
 import JoyConSwift
 
+let helperAppID: CFString = "jp.0spec.JoyConMapperLauncher" as CFString
+
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNotificationCenterDelegate {
     @IBOutlet weak var menu: NSMenu?
     @IBOutlet weak var controllersMenu: NSMenuItem?
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -57,6 +61,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
         
         self.updateControllersMenu()
+        
+        // Notification settings
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
     }
     
     // MARK: - Menu
@@ -66,8 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     @IBAction func openPreferences(_ sender: Any) {
-        self.windowController?.window?.makeKeyAndOrderFront(self)
         self.windowController?.showWindow(self)
+        self.windowController?.window?.orderFrontRegardless()
         self.windowController?.window?.delegate = self
     }
     
@@ -77,16 +85,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     func updateControllersMenu() {
         self.controllersMenu?.submenu?.removeAllItems()
-        
-        // TODO: Use an icon instead of text
-        let batteryString: [JoyCon.BatteryStatus: String] = [
-            .empty: "Empty",
-            .critical: "critical",
-            .low: "low",
-            .medium: "medium",
-            .full: "full"
-        ]
-        // TODO: check 'isCharging'
 
         self.controllers.forEach { controller in
             guard controller.controller?.isConnected ?? false else { return }
@@ -97,22 +95,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             item.image?.size = NSSize(width: 32, height: 32)
             
             item.submenu = NSMenu()
+            
+            // Enable key mappings menu
+            let enabled = NSMenuItem()
+            enabled.title = NSLocalizedString("Enable key mappings", comment: "Enable key mappings")
+            enabled.action = Selector(("toggleEnableKeyMappings"))
+            enabled.target = controller
+            item.submenu?.addItem(enabled)
 
+            // Disconnect menu
             let disconnect = NSMenuItem()
-            disconnect.title = "Disconnect"
-            disconnect.action = #selector(AppDelegate.disconnectController(sender:))
-            disconnect.representedObject = controller
+            disconnect.title = NSLocalizedString("Disconnect", comment: "Disconnect")
+            disconnect.action = Selector(("disconnect"))
+            disconnect.target = controller
             item.submenu?.addItem(disconnect)
+            
+            // Separator
             item.submenu?.addItem(NSMenuItem.separator())
 
-            // TODO: Use icon instead of text to show the battery state
+            // Battery info
             let battery = NSMenuItem()
-            if let state = controller.controller?.battery, let stateString = batteryString[state] {
+            if controller.controller?.battery ?? .unknown != .unknown {
                 var chargeString = ""
                 if controller.controller?.isCharging ?? false {
-                    chargeString = " (charging)"
+                    let charging = NSLocalizedString("charging", comment: "charging")
+                    chargeString = " (\(charging))"
                 }
-                battery.title = "Battery: \(stateString)\(chargeString)"
+                battery.title = "Battery: \(controller.localizedBatteryString)\(chargeString)"
             }
             battery.isEnabled = false
             item.submenu?.addItem(battery)
@@ -122,9 +131,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         if let itemCount = self.controllersMenu?.submenu?.items.count, itemCount <= 0 {
             let item = NSMenuItem()
-            item.title = "(No controllers connected)"
+            let noControllers = NSLocalizedString("No controllers connected", comment: "No controllers connected")
+            item.title = "(\(noControllers))"
             item.isEnabled = false
             self.controllersMenu?.submenu?.addItem(item)
+        }
+    }
+    
+    // MARK: - Helper app settings
+    
+    func setLoginItem(enabled: Bool) {
+        let succeeded = SMLoginItemSetEnabled(helperAppID, enabled)
+        if (!succeeded) {
+            
         }
     }
     
@@ -134,6 +153,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         _ = self.dataManager?.save()
     }
     
+    // MARK: - UNUserNotificationCenterDelegate
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+
     // MARK: - Controller event handlers
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -149,10 +178,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             gameController.controller = controller
             gameController.startTimer()
             NotificationCenter.default.post(name: .controllerConnected, object: gameController)
+
+            AppNotifications.notifyControllerConnected(gameController)
         } else {
             self.addController(controller)
         }
         self.updateControllersMenu()
+        
     }
 
     @objc func disconnectController(sender: Any) {
@@ -169,6 +201,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }) {
             gameController.controller = nil
             NotificationCenter.default.post(name: .controllerDisconnected, object: gameController)
+            
+            AppNotifications.notifyControllerDisconnected(gameController)
         }
         self.updateControllersMenu()
     }
@@ -182,6 +216,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         self.controllers.append(gameController)
         
         NotificationCenter.default.post(name: .controllerAdded, object: gameController)
+        
+        AppNotifications.notifyControllerConnected(gameController)
     }
     
     func removeController(_ controller: JoyConSwift.Controller) {

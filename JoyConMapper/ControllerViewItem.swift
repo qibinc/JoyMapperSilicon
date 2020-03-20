@@ -44,19 +44,34 @@ class ControllerViewItem: NSCollectionViewItem {
     func showMenu(_ event: NSEvent) {
         let menu = NSMenu(title: "ControllerMenu")
         
-        let disconnectMenu = NSMenuItem(title: "Disconnect", action: Selector(("disconnect")), keyEquivalent: "")
+        // Enable key mappings menu
+        let enableTitle = NSLocalizedString("Enable key mappings", comment: "Enable key mappings")
+        let enableMenu = NSMenuItem(title: enableTitle, action: Selector(("enableKeyMappings")), keyEquivalent: "")
+        enableMenu.target = self
+        enableMenu.state = (self.controller?.isEnabled ?? false) ? .on : .off
+        menu.addItem(enableMenu)
 
+        // Disconnect menu
+        let disconnectTitle = NSLocalizedString("Disconnect", comment: "Disconnect")
+        let disconnectMenu = NSMenuItem(title: disconnectTitle, action: Selector(("disconnect")), keyEquivalent: "")
         if self.controller?.controller != nil {
             disconnectMenu.target = self
         }
         menu.addItem(disconnectMenu)
 
-        let removeMenu = NSMenuItem(title: "Remove", action: Selector(("remove")), keyEquivalent: "")
+        // Remove menu
+        let removeTitle = NSLocalizedString("Remove", comment: "Remove")
+        let removeMenu = NSMenuItem(title: removeTitle, action: Selector(("remove")), keyEquivalent: "")
         removeMenu.target = self
         menu.addItem(removeMenu)
 
         let pos = event.cgEvent?.unflippedLocation ?? CGPoint(x: 0, y: 0)
         menu.popUp(positioning: nil, at: pos, in: nil)
+    }
+    
+    @objc func enableKeyMappings() {
+        guard let controller = self.controller else { return }
+        controller.isEnabled = !controller.isEnabled
     }
     
     @objc func disconnect() {
@@ -66,6 +81,18 @@ class ControllerViewItem: NSCollectionViewItem {
     @objc func remove() {
         guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
         guard let controller = self.controller else { return }
+        
+        let alert = NSAlert()
+        alert.icon = controller.icon
+        alert.messageText = NSLocalizedString("Do you really want to remove the controller?", comment: "Do you really want to remove the controller?")
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel"))
+        alert.addButton(withTitle: NSLocalizedString("OK", comment: "OK"))
+        let response = alert.runModal()
+        
+        if response == .alertFirstButtonReturn {
+            // Cancel
+            return
+        }
         
         delegate.removeController(gameController: controller)
     }
