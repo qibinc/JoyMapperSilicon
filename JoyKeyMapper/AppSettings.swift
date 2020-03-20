@@ -1,6 +1,6 @@
 //
 //  AppSettings.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2020/03/12.
 //  Copyright © 2020 DarkHorse. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import ServiceManagement
 
-let helperAppBundleID = "jp.0spec.JoyConMapperLauncher"
+let helperAppBundleID = "jp.0spec.JoyKeyMapperLauncher"
 
 class AppSettings {
     static var disconnectTime: Int {

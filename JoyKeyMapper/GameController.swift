@@ -1,6 +1,6 @@
 //
 //  GameController.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/14.
 //  Copyright © 2019 DarkHorse. All rights reserved.

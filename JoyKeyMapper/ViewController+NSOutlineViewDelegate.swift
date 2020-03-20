@@ -1,6 +1,6 @@
 //
 //  ViewController+NSOutlineViewDelegate.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/23.
 //  Copyright © 2019 DarkHorse. All rights reserved.

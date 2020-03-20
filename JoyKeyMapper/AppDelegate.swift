@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/14.
 //  Copyright © 2019 DarkHorse. All rights reserved.
@@ -11,7 +11,7 @@ import ServiceManagement
 import UserNotifications
 import JoyConSwift
 
-let helperAppID: CFString = "jp.0spec.JoyConMapperLauncher" as CFString
+let helperAppID: CFString = "jp.0spec.JoyKeyMapperLauncher" as CFString
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNotificationCenterDelegate {
@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
         
         // Window initialization
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        self.windowController = storyboard.instantiateController(withIdentifier: "JoyConMapperWindowController") as? NSWindowController
+        self.windowController = storyboard.instantiateController(withIdentifier: "JoyKeyMapperWindowController") as? NSWindowController
         
         // Menu settings
         let icon = NSImage(named: "menu_icon")

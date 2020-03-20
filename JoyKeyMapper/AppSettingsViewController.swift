@@ -1,6 +1,6 @@
 //
 //  AppSettingsViewController.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2020/03/11.
 //  Copyright © 2020 DarkHorse. All rights reserved.

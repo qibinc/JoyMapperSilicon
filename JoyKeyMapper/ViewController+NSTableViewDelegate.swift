@@ -1,6 +1,6 @@
 //
 //  ViewController+NSTableViewDelegate.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/21.
 //  Copyright © 2019 DarkHorse. All rights reserved.

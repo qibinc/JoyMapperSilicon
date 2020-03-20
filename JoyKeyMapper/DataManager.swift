@@ -1,6 +1,6 @@
 //
 //  DataManager.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/14.
 //  Copyright © 2019 DarkHorse. All rights reserved.
@@ -43,7 +43,7 @@ class DataManager: NSObject {
     }
     
     init(completion: @escaping (DataManager?) -> Void) {
-        self.container = NSPersistentContainer(name: "JoyConMapper")
+        self.container = NSPersistentContainer(name: "JoyKeyMapper")
         super.init()
         
         self.container.loadPersistentStores { [weak self] (storeDescription, error) in

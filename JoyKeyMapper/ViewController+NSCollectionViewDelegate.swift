@@ -1,6 +1,6 @@
 //
 //  ViewController+NSCollectionViewDelegate.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2019/07/15.
 //  Copyright © 2019 DarkHorse. All rights reserved.

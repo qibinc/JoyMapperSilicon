@@ -5,14 +5,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ControllerViewItem" customModule="JoyConMapper" customModuleProvider="target"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="ControllerViewItem" customModule="JoyKeyMapper" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kc5-e0-Hwu" customClass="ControllerView" customModule="JoyConMapper" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kc5-e0-Hwu" customClass="ControllerView" customModule="JoyKeyMapper" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                     <subviews>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z7D-q8-jdc">
@@ -51,7 +51,7 @@
             </constraints>
             <point key="canvasLocation" x="133" y="148"/>
         </customView>
-        <collectionViewItem id="JPo-fp-Mia" customClass="ControllerViewItem" customModule="JoyConMapper" customModuleProvider="target">
+        <collectionViewItem id="JPo-fp-Mia" customClass="ControllerViewItem" customModule="JoyKeyMapper" customModuleProvider="target">
             <connections>
                 <outlet property="controllerView" destination="Kc5-e0-Hwu" id="Tvj-El-kRj"/>
                 <outlet property="iconView" destination="z7D-q8-jdc" id="JIW-gC-cR2"/>

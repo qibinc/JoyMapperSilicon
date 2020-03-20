@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JoyConMapperLauncher
+//  JoyKeyMapperLauncher
 //
 //  Created by magicien on 2020/03/08.
 //  Copyright © 2020 DarkHorse. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-let mainAppID = "jp.0spec.JoyConMapper"
+let mainAppID = "jp.0spec.JoyKeyMapper"
 // let mainAppURL  = URL(string: "https://joyconmapper.0spec.jp")!
 
 @NSApplicationMain

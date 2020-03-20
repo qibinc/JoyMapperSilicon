@@ -1,6 +1,6 @@
 //
 //  AppNotifications.swift
-//  JoyConMapper
+//  JoyKeyMapper
 //
 //  Created by magicien on 2020/03/08.
 //  Copyright © 2020 DarkHorse. All rights reserved.
