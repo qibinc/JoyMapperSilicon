@@ -8,35 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		93256183A11EAD19ADC85FF9 /* Pods_JoyKeyMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480DB1F0DAF805C943A9656A /* Pods_JoyKeyMapper.framework */; };
+		DD05303224272D7A0091B3C6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05302D24272D7A0091B3C6 /* DataManager.swift */; };
+		DD05303324272D7A0091B3C6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05302E24272D7A0091B3C6 /* GameController.swift */; };
+		DD05303424272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD05302F24272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld */; };
+		DD05303524272D7A0091B3C6 /* GameControllerIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303124272D7A0091B3C6 /* GameControllerIcon.swift */; };
+		DD05303924272D920091B3C6 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303724272D920091B3C6 /* Notifications.swift */; };
+		DD05303A24272D920091B3C6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303824272D920091B3C6 /* Utils.swift */; };
+		DD05305024272DAA0091B3C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303C24272DAA0091B3C6 /* ViewController.swift */; };
+		DD05305124272DAA0091B3C6 /* KeyConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303E24272DAA0091B3C6 /* KeyConfigViewController.swift */; };
+		DD05305224272DAA0091B3C6 /* KeyConfigComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05303F24272DAA0091B3C6 /* KeyConfigComboBox.swift */; };
+		DD05305324272DAA0091B3C6 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304124272DAA0091B3C6 /* AppSettings.swift */; };
+		DD05305424272DAA0091B3C6 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304224272DAA0091B3C6 /* AppSettingsViewController.swift */; };
+		DD05305524272DAA0091B3C6 /* StickConfigCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304424272DAA0091B3C6 /* StickConfigCellView.swift */; };
+		DD05305624272DAA0091B3C6 /* SpecialKeyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304524272DAA0091B3C6 /* SpecialKeyName.swift */; };
+		DD05305724272DAA0091B3C6 /* ViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304624272DAA0091B3C6 /* ViewController+NSOutlineViewDelegate.swift */; };
+		DD05305824272DAA0091B3C6 /* ButtonNameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304724272DAA0091B3C6 /* ButtonNameCellView.swift */; };
+		DD05305924272DAA0091B3C6 /* ViewController+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304924272DAA0091B3C6 /* ViewController+NSTableViewDelegate.swift */; };
+		DD05305A24272DAA0091B3C6 /* AppCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304A24272DAA0091B3C6 /* AppCellView.swift */; };
+		DD05305B24272DAA0091B3C6 /* ViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304C24272DAA0091B3C6 /* ViewController+NSCollectionViewDelegate.swift */; };
+		DD05305C24272DAA0091B3C6 /* ControllerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304D24272DAA0091B3C6 /* ControllerViewItem.swift */; };
+		DD05305D24272DAA0091B3C6 /* ControllerViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD05304E24272DAA0091B3C6 /* ControllerViewItem.xib */; };
+		DD05305E24272DAA0091B3C6 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05304F24272DAA0091B3C6 /* ControllerView.swift */; };
 		DD0AE2E522DAB13100B68F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */; };
-		DD0AE2E722DAB13100B68F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E622DAB13100B68F05 /* ViewController.swift */; };
-		DD0AE2EA22DAB13100B68F05 /* JoyKeyMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2E822DAB13100B68F05 /* JoyKeyMapper.xcdatamodeld */; };
 		DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0AE2ED22DAB13200B68F05 /* Main.storyboard */; };
-		DD0AE2F822DAF33100B68F05 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2F722DAF33100B68F05 /* DataManager.swift */; };
-		DD0AE2FA22DB1C1B00B68F05 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2F922DB1C1B00B68F05 /* GameController.swift */; };
-		DD0AE2FC22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */; };
-		DD0AE30622DC88CD00B68F05 /* ControllerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */; };
-		DD0AE30722DC88CD00B68F05 /* ControllerViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */; };
-		DD0AE30922DCA93F00B68F05 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE30822DCA93F00B68F05 /* Notifications.swift */; };
-		DD0AE7CD22E0BD8300B68F05 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */; };
-		DD0AE82F22E3744900B68F05 /* AppCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE82E22E3744900B68F05 /* AppCellView.swift */; };
-		DD0AE83922E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */; };
-		DD0AE86F22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */; };
-		DD0AE87122E634C500B68F05 /* ButtonNameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */; };
-		DD3A268622F9DA46005A82FF /* StickConfigCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */; };
-		DD41CFA322E9AD4100899D5D /* SpecialKeyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */; };
-		DD41CFD722EDFB8B00899D5D /* KeyConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */; };
-		DD41CFDD22EE173A00899D5D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFDC22EE173A00899D5D /* Utils.swift */; };
-		DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */; };
 		DD8744732412941B00B3AB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8744722412941B00B3AB11 /* Assets.xcassets */; };
-		DD8744752413C20400B3AB11 /* GameControllerIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8744742413C20400B3AB11 /* GameControllerIcon.swift */; };
 		DD87447D241495A700B3AB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD87447C241495A700B3AB11 /* AppDelegate.swift */; };
 		DD874481241495A900B3AB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD874480241495A900B3AB11 /* Assets.xcassets */; };
 		DD874487241495A900B3AB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD874485241495A900B3AB11 /* Main.storyboard */; };
 		DD87448E2414B8B400B3AB11 /* JoyKeyMapperLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD87447A241495A700B3AB11 /* JoyKeyMapperLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DD89367724194DE1000A52C0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89367624194DE1000A52C0 /* AppSettings.swift */; };
 		DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC3B3F24151C350022FF32 /* AppNotifications.swift */; };
-		DDAC3B54241802C50022FF32 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,40 +56,40 @@
 		475E07CC10AB2EDFD3A1DE83 /* Pods-JoyKeyMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyKeyMapper.release.xcconfig"; path = "Target Support Files/Pods-JoyKeyMapper/Pods-JoyKeyMapper.release.xcconfig"; sourceTree = "<group>"; };
 		480DB1F0DAF805C943A9656A /* Pods_JoyKeyMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JoyKeyMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0B679D3FC9AD29E57D0287 /* Pods-JoyKeyMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyKeyMapper.debug.xcconfig"; path = "Target Support Files/Pods-JoyKeyMapper/Pods-JoyKeyMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		DD05302D24272D7A0091B3C6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		DD05302E24272D7A0091B3C6 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		DD05303024272D7A0091B3C6 /* JoyKeyMapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JoyKeyMapper.xcdatamodel; sourceTree = "<group>"; };
+		DD05303124272D7A0091B3C6 /* GameControllerIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControllerIcon.swift; sourceTree = "<group>"; };
+		DD05303724272D920091B3C6 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		DD05303824272D920091B3C6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DD05303C24272DAA0091B3C6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD05303E24272DAA0091B3C6 /* KeyConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyConfigViewController.swift; sourceTree = "<group>"; };
+		DD05303F24272DAA0091B3C6 /* KeyConfigComboBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyConfigComboBox.swift; sourceTree = "<group>"; };
+		DD05304124272DAA0091B3C6 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		DD05304224272DAA0091B3C6 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
+		DD05304424272DAA0091B3C6 /* StickConfigCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickConfigCellView.swift; sourceTree = "<group>"; };
+		DD05304524272DAA0091B3C6 /* SpecialKeyName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialKeyName.swift; sourceTree = "<group>"; };
+		DD05304624272DAA0091B3C6 /* ViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
+		DD05304724272DAA0091B3C6 /* ButtonNameCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNameCellView.swift; sourceTree = "<group>"; };
+		DD05304924272DAA0091B3C6 /* ViewController+NSTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
+		DD05304A24272DAA0091B3C6 /* AppCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCellView.swift; sourceTree = "<group>"; };
+		DD05304C24272DAA0091B3C6 /* ViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		DD05304D24272DAA0091B3C6 /* ControllerViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerViewItem.swift; sourceTree = "<group>"; };
+		DD05304E24272DAA0091B3C6 /* ControllerViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllerViewItem.xib; sourceTree = "<group>"; };
+		DD05304F24272DAA0091B3C6 /* ControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		DD0AE2E122DAB13100B68F05 /* JoyKeyMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyKeyMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD0AE2E622DAB13100B68F05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DD0AE2E922DAB13100B68F05 /* JoyKeyMapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JoyKeyMapper.xcdatamodel; sourceTree = "<group>"; };
 		DD0AE2EE22DAB13200B68F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD0AE2F022DAB13200B68F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD0AE2F122DAB13200B68F05 /* JoyKeyMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyKeyMapper.entitlements; sourceTree = "<group>"; };
-		DD0AE2F722DAF33100B68F05 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		DD0AE2F922DB1C1B00B68F05 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
-		DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
-		DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewItem.swift; sourceTree = "<group>"; };
-		DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllerViewItem.xib; sourceTree = "<group>"; };
-		DD0AE30822DCA93F00B68F05 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
-		DD0AE82E22E3744900B68F05 /* AppCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellView.swift; sourceTree = "<group>"; };
-		DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSTableViewDelegate.swift"; sourceTree = "<group>"; };
-		DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NSOutlineViewDelegate.swift"; sourceTree = "<group>"; };
-		DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNameCellView.swift; sourceTree = "<group>"; };
-		DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickConfigCellView.swift; sourceTree = "<group>"; };
-		DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialKeyName.swift; sourceTree = "<group>"; };
-		DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConfigViewController.swift; sourceTree = "<group>"; };
-		DD41CFDC22EE173A00899D5D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConfigComboBox.swift; sourceTree = "<group>"; };
 		DD8744722412941B00B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DD8744742413C20400B3AB11 /* GameControllerIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIcon.swift; sourceTree = "<group>"; };
 		DD87447A241495A700B3AB11 /* JoyKeyMapperLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyKeyMapperLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD87447C241495A700B3AB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD874480241495A900B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD874486241495A900B3AB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD874488241495A900B3AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD874489241495A900B3AB11 /* JoyKeyMapperLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyKeyMapperLauncher.entitlements; sourceTree = "<group>"; };
-		DD89367624194DE1000A52C0 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		DDAC3B3F24151C350022FF32 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
-		DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +128,89 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DD05302C24272D7A0091B3C6 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD05302F24272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld */,
+				DD05302D24272D7A0091B3C6 /* DataManager.swift */,
+				DD05302E24272D7A0091B3C6 /* GameController.swift */,
+				DD05303124272D7A0091B3C6 /* GameControllerIcon.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		DD05303624272D920091B3C6 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				DD05303724272D920091B3C6 /* Notifications.swift */,
+				DD05303824272D920091B3C6 /* Utils.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		DD05303B24272DAA0091B3C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD0AE2ED22DAB13200B68F05 /* Main.storyboard */,
+				DD05303C24272DAA0091B3C6 /* ViewController.swift */,
+				DD05304B24272DAA0091B3C6 /* ControllerList */,
+				DD05304824272DAA0091B3C6 /* AppList */,
+				DD05304324272DAA0091B3C6 /* KeyMapList */,
+				DD05303D24272DAA0091B3C6 /* KeyConfigView */,
+				DD05304024272DAA0091B3C6 /* AppSettings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD05303D24272DAA0091B3C6 /* KeyConfigView */ = {
+			isa = PBXGroup;
+			children = (
+				DD05303E24272DAA0091B3C6 /* KeyConfigViewController.swift */,
+				DD05303F24272DAA0091B3C6 /* KeyConfigComboBox.swift */,
+			);
+			path = KeyConfigView;
+			sourceTree = "<group>";
+		};
+		DD05304024272DAA0091B3C6 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				DD05304124272DAA0091B3C6 /* AppSettings.swift */,
+				DD05304224272DAA0091B3C6 /* AppSettingsViewController.swift */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
+		DD05304324272DAA0091B3C6 /* KeyMapList */ = {
+			isa = PBXGroup;
+			children = (
+				DD05304424272DAA0091B3C6 /* StickConfigCellView.swift */,
+				DD05304524272DAA0091B3C6 /* SpecialKeyName.swift */,
+				DD05304624272DAA0091B3C6 /* ViewController+NSOutlineViewDelegate.swift */,
+				DD05304724272DAA0091B3C6 /* ButtonNameCellView.swift */,
+			);
+			path = KeyMapList;
+			sourceTree = "<group>";
+		};
+		DD05304824272DAA0091B3C6 /* AppList */ = {
+			isa = PBXGroup;
+			children = (
+				DD05304924272DAA0091B3C6 /* ViewController+NSTableViewDelegate.swift */,
+				DD05304A24272DAA0091B3C6 /* AppCellView.swift */,
+			);
+			path = AppList;
+			sourceTree = "<group>";
+		};
+		DD05304B24272DAA0091B3C6 /* ControllerList */ = {
+			isa = PBXGroup;
+			children = (
+				DD05304C24272DAA0091B3C6 /* ViewController+NSCollectionViewDelegate.swift */,
+				DD05304D24272DAA0091B3C6 /* ControllerViewItem.swift */,
+				DD05304E24272DAA0091B3C6 /* ControllerViewItem.xib */,
+				DD05304F24272DAA0091B3C6 /* ControllerView.swift */,
+			);
+			path = ControllerList;
+			sourceTree = "<group>";
+		};
 		DD0AE2D822DAB13100B68F05 = {
 			isa = PBXGroup;
 			children = (
@@ -151,33 +234,14 @@
 		DD0AE2E322DAB13100B68F05 /* JoyKeyMapper */ = {
 			isa = PBXGroup;
 			children = (
-				DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */,
-				DD89367624194DE1000A52C0 /* AppSettings.swift */,
-				DDAC3B3F24151C350022FF32 /* AppNotifications.swift */,
-				DD0AE2F722DAF33100B68F05 /* DataManager.swift */,
-				DD0AE2F922DB1C1B00B68F05 /* GameController.swift */,
-				DD8744742413C20400B3AB11 /* GameControllerIcon.swift */,
-				DD0AE2E622DAB13100B68F05 /* ViewController.swift */,
-				DD0AE2FB22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift */,
-				DD0AE83822E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift */,
-				DD0AE86E22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift */,
-				DDAC3B53241802C50022FF32 /* AppSettingsViewController.swift */,
-				DD41CFD622EDFB8B00899D5D /* KeyConfigViewController.swift */,
-				DD41CFDE22EF2F0900899D5D /* KeyConfigComboBox.swift */,
-				DD0AE30422DC88CD00B68F05 /* ControllerViewItem.swift */,
-				DD0AE7CC22E0BD8300B68F05 /* ControllerView.swift */,
-				DD0AE30822DCA93F00B68F05 /* Notifications.swift */,
-				DD0AE82E22E3744900B68F05 /* AppCellView.swift */,
-				DD0AE87022E634C500B68F05 /* ButtonNameCellView.swift */,
-				DD3A268522F9DA46005A82FF /* StickConfigCellView.swift */,
-				DD41CFA222E9AD4100899D5D /* SpecialKeyName.swift */,
-				DD41CFDC22EE173A00899D5D /* Utils.swift */,
-				DD0AE30522DC88CD00B68F05 /* ControllerViewItem.xib */,
-				DD0AE2ED22DAB13200B68F05 /* Main.storyboard */,
-				DD8744722412941B00B3AB11 /* Assets.xcassets */,
 				DD0AE2F022DAB13200B68F05 /* Info.plist */,
+				DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */,
+				DDAC3B3F24151C350022FF32 /* AppNotifications.swift */,
+				DD05302C24272D7A0091B3C6 /* DataModels */,
+				DD05303B24272DAA0091B3C6 /* Views */,
+				DD05303624272D920091B3C6 /* Misc */,
 				DD0AE2F122DAB13200B68F05 /* JoyKeyMapper.entitlements */,
-				DD0AE2E822DAB13100B68F05 /* JoyKeyMapper.xcdatamodeld */,
+				DD8744722412941B00B3AB11 /* Assets.xcassets */,
 			);
 			path = JoyKeyMapper;
 			sourceTree = "<group>";
@@ -283,7 +347,7 @@
 			files = (
 				DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */,
 				DD8744732412941B00B3AB11 /* Assets.xcassets in Resources */,
-				DD0AE30722DC88CD00B68F05 /* ControllerViewItem.xib in Resources */,
+				DD05305D24272DAA0091B3C6 /* ControllerViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,28 +409,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0AE83922E3866B00B68F05 /* ViewController+NSTableViewDelegate.swift in Sources */,
-				DD0AE2E722DAB13100B68F05 /* ViewController.swift in Sources */,
-				DD3A268622F9DA46005A82FF /* StickConfigCellView.swift in Sources */,
-				DD0AE2FA22DB1C1B00B68F05 /* GameController.swift in Sources */,
-				DD0AE7CD22E0BD8300B68F05 /* ControllerView.swift in Sources */,
-				DD0AE2F822DAF33100B68F05 /* DataManager.swift in Sources */,
-				DD0AE82F22E3744900B68F05 /* AppCellView.swift in Sources */,
-				DD41CFD722EDFB8B00899D5D /* KeyConfigViewController.swift in Sources */,
-				DD0AE86F22E61B9400B68F05 /* ViewController+NSOutlineViewDelegate.swift in Sources */,
-				DD0AE87122E634C500B68F05 /* ButtonNameCellView.swift in Sources */,
-				DD41CFDD22EE173A00899D5D /* Utils.swift in Sources */,
-				DD0AE30922DCA93F00B68F05 /* Notifications.swift in Sources */,
-				DD0AE30622DC88CD00B68F05 /* ControllerViewItem.swift in Sources */,
-				DD89367724194DE1000A52C0 /* AppSettings.swift in Sources */,
-				DD41CFA322E9AD4100899D5D /* SpecialKeyName.swift in Sources */,
-				DDAC3B54241802C50022FF32 /* AppSettingsViewController.swift in Sources */,
+				DD05305324272DAA0091B3C6 /* AppSettings.swift in Sources */,
+				DD05305024272DAA0091B3C6 /* ViewController.swift in Sources */,
+				DD05303924272D920091B3C6 /* Notifications.swift in Sources */,
+				DD05305824272DAA0091B3C6 /* ButtonNameCellView.swift in Sources */,
+				DD05305A24272DAA0091B3C6 /* AppCellView.swift in Sources */,
+				DD05303224272D7A0091B3C6 /* DataManager.swift in Sources */,
+				DD05303A24272D920091B3C6 /* Utils.swift in Sources */,
+				DD05303524272D7A0091B3C6 /* GameControllerIcon.swift in Sources */,
+				DD05305B24272DAA0091B3C6 /* ViewController+NSCollectionViewDelegate.swift in Sources */,
+				DD05305924272DAA0091B3C6 /* ViewController+NSTableViewDelegate.swift in Sources */,
+				DD05303324272D7A0091B3C6 /* GameController.swift in Sources */,
+				DD05303424272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld in Sources */,
+				DD05305724272DAA0091B3C6 /* ViewController+NSOutlineViewDelegate.swift in Sources */,
 				DD0AE2E522DAB13100B68F05 /* AppDelegate.swift in Sources */,
-				DD8744752413C20400B3AB11 /* GameControllerIcon.swift in Sources */,
+				DD05305124272DAA0091B3C6 /* KeyConfigViewController.swift in Sources */,
+				DD05305624272DAA0091B3C6 /* SpecialKeyName.swift in Sources */,
+				DD05305524272DAA0091B3C6 /* StickConfigCellView.swift in Sources */,
 				DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */,
-				DD0AE2EA22DAB13100B68F05 /* JoyKeyMapper.xcdatamodeld in Sources */,
-				DD41CFDF22EF2F0900899D5D /* KeyConfigComboBox.swift in Sources */,
-				DD0AE2FC22DC5C8F00B68F05 /* ViewController+NSCollectionViewDelegate.swift in Sources */,
+				DD05305424272DAA0091B3C6 /* AppSettingsViewController.swift in Sources */,
+				DD05305224272DAA0091B3C6 /* KeyConfigComboBox.swift in Sources */,
+				DD05305E24272DAA0091B3C6 /* ControllerView.swift in Sources */,
+				DD05305C24272DAA0091B3C6 /* ControllerViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,12 +702,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DD0AE2E822DAB13100B68F05 /* JoyKeyMapper.xcdatamodeld */ = {
+		DD05302F24272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DD0AE2E922DAB13100B68F05 /* JoyKeyMapper.xcdatamodel */,
+				DD05303024272D7A0091B3C6 /* JoyKeyMapper.xcdatamodel */,
 			);
-			currentVersion = DD0AE2E922DAB13100B68F05 /* JoyKeyMapper.xcdatamodel */;
+			currentVersion = DD05303024272D7A0091B3C6 /* JoyKeyMapper.xcdatamodel */;
 			path = JoyKeyMapper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
