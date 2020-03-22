@@ -13,7 +13,7 @@ class ControllerView: NSView {
     
     override func draw(_ dirtyRect: NSRect) {
         if self.isSelected {
-            NSColor.blue.setFill()
+            NSColor.alternateSelectedControlColor.setFill()
         } else {
             NSColor.white.setFill()
         }

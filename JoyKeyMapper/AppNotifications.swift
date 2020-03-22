@@ -47,7 +47,7 @@ class AppNotifications {
         
         let content = UNMutableNotificationContent()
         let label = NSLocalizedString("Battery level", comment: "Battery level")
-        let battery = "" // TODO: Implement
+        let battery = controller.localizedBatteryString
         content.title = "\(label): \(battery)"
         content.categoryIdentifier = "info"
         if let attachment = self.createControllerIconAttachment(for: controller) {

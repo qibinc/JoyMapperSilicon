@@ -91,21 +91,9 @@ class DataManager: NSObject {
         return true
     }
     
-    func saveDataFile(to url: URL) -> Bool {
-        var result: Bool = false
-        do {
-            let store = try self.container.persistentStoreCoordinator.addPersistentStore(ofType: NSBinaryStoreType, configurationName: nil, at: url, options: nil)
-            result = self.save()
-            try self.container.persistentStoreCoordinator.remove(store)
-        } catch {
-            let nserror = error as NSError
-            NSApplication.shared.presentError(nserror)
-        }
-        
-        return result
-    }
+    // MARK: - Import/Export data
     
-    func loadDataFile<T>(from url: URL, request: NSFetchRequest<T>) -> [T]? {
+    func createContext(for url: URL) -> NSManagedObjectContext? {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.container.managedObjectModel)
         do {
             // TODO: Set options
@@ -120,6 +108,35 @@ class DataManager: NSObject {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         context.persistentStoreCoordinator = coordinator
         
+        return context
+    }
+    
+    func saveData(object: NSManagedObject, to url: URL) -> Bool {
+        guard let context = self.createContext(for: url) else { return false }
+        
+        context.insert(object)
+        if !context.commitEditing() {
+            return false
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            // Customize this code block to include application-specific recovery steps.
+            let nserror = error as NSError
+            NSApplication.shared.presentError(nserror)
+
+            return false
+        }
+        
+        return true
+    }
+    
+    func loadData<T: NSManagedObject>(from url: URL) -> [T]? {
+        guard let context = self.createContext(for: url) else { return nil }
+        guard let entityName = T.entity().name else { return nil }
+        
+        let request = NSFetchRequest<T>(entityName: entityName)
         do {
             return try context.fetch(request)
         } catch {

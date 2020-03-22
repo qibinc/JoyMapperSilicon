@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
         NSApplication.shared.orderFrontStandardAboutPanel(NSApplication.shared)
     }
     
-    @IBAction func openPreferences(_ sender: Any) {
+    @IBAction func openSettings(_ sender: Any) {
         self.windowController?.showWindow(self)
         self.windowController?.window?.orderFrontRegardless()
         self.windowController?.window?.delegate = self
@@ -100,6 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
             let enabled = NSMenuItem()
             enabled.title = NSLocalizedString("Enable key mappings", comment: "Enable key mappings")
             enabled.action = Selector(("toggleEnableKeyMappings"))
+            enabled.state = controller.isEnabled ? .on : .off
             enabled.target = controller
             item.submenu?.addItem(enabled)
 
@@ -184,7 +185,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
             self.addController(controller)
         }
         self.updateControllersMenu()
-        
     }
 
     @objc func disconnectController(sender: Any) {

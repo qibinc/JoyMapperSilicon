@@ -454,7 +454,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         return nil
     }
     
-    @IBAction func didDoubleClick(_ sender: AnyObject) {
+    @IBAction func didClick(_ sender: AnyObject) {
         guard self.keyDownHandler == nil else { return }
         guard let type = self.selectedController?.type else { return }
 
@@ -465,7 +465,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             guard let buttons = controllerButtons[type] else { return }
             guard rowIndex < buttons.count else { return }
             let button = buttons[rowIndex]
-            self.didDoubleClick(button: button)
+            self.didClick(button: button)
             return
         }
         
@@ -483,13 +483,13 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             
             if type == StickType.Key.rawValue {
                 let direction = stickerDirections[rowIndex]
-                self.didDoubleClick(stick: stick, direction: direction)
+                self.didClick(stick: stick, direction: direction)
             }
             return
         }
     }
     
-    func didDoubleClick(button: JoyCon.Button) {
+    func didClick(button: JoyCon.Button) {
         guard let buttonName = buttonNames[button] else { return }
         
         var keyMap = self.selectedKeyConfig?.keyMaps?.first(where: { map in
@@ -511,7 +511,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         self.presentAsSheet(controller)
     }
     
-    func didDoubleClick(stick: JoyCon.Button, direction: JoyCon.StickDirection) {
+    func didClick(stick: JoyCon.Button, direction: JoyCon.StickDirection) {
         guard let directionName = directionNames[direction] else { return }
 
         var stickConfigData: StickConfig? = nil

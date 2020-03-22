@@ -133,7 +133,7 @@ class ViewController: NSViewController {
         
         let alert = NSAlert()
         alert.alertStyle = .warning
-        alert.messageText = "Do you really want to delete the settings for \(appName)?"
+        alert.messageText = String.localizedStringWithFormat(NSLocalizedString("Do you really want to delete the settings for %@?", comment: "Do you really want to delete the settings for <app>?"), appName)
         alert.addButton(withTitle: "Cancel")
         alert.addButton(withTitle: "OK")
         let result = alert.runModal()
@@ -188,6 +188,29 @@ class ViewController: NSViewController {
         DispatchQueue.main.async { [weak self] in
             self?.controllerCollectionView.reloadData()
         }
+    }
+    
+    // MARK: - Import
+    
+    @IBAction func importKeyMappings(_ sender: NSButton) {
+    }
+    
+    // MARK: - Export
+    
+    @IBAction func exportKeyMappngs(_ sender: NSButton) {
+        return
+        /*
+        guard let dataManager = self.appDelegate?.dataManager else { return }
+
+        let savePanel = NSSavePanel()
+        savePanel.message = NSLocalizedString("Save key mapping data", comment: "Save key mapping data")
+        savePanel.allowedFileTypes = ["jkmap"]
+        
+        savePanel.begin { response in
+            guard response == .OK else { return }
+            guard let filePath = savePanel.url?.absoluteString.removingPercentEncoding else { return }
+        }
+        */
     }
     
     // MARK: - Options

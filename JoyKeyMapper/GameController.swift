@@ -40,7 +40,12 @@ class GameController {
     var currentRStickMode: StickType = .None
     var currentRStickConfig: [JoyCon.StickDirection:KeyMap] = [:]
 
-    var isEnabled: Bool = true
+    var isEnabled: Bool = true {
+        didSet {
+            guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            delegate.updateControllersMenu()
+        }
+    }
     var isLeftDragging: Bool = false
     var isRightDragging: Bool = false
     var isCenterDragging: Bool = false
@@ -173,6 +178,8 @@ class GameController {
                 self.rightGripColor = nsRightGripColor
             }
         }
+        
+        self.updateControllerIcon()
     }
     
     func buttonPressHandler(button: JoyCon.Button) {
@@ -325,6 +332,7 @@ class GameController {
     func batteryChangeHandler(newState: JoyCon.BatteryStatus, oldState: JoyCon.BatteryStatus) {
         self.updateControllerIcon()
         
+        Swift.print("*** battery change: \(oldState.rawValue) -> \(newState.rawValue)")
         if newState == .full && oldState != .unknown {
             AppNotifications.notifyBatteryFullCharge(self)
         }
@@ -482,7 +490,7 @@ class GameController {
     }
     
     @objc func toggleEnableKeyMappings() {
-        
+        self.isEnabled = !self.isEnabled
     }
     
     @objc func disconnect() {
@@ -499,12 +507,11 @@ class GameController {
     func startTimer() {
         self.stopTimer()
         
-        // TODO: Let users change the time
-        let disconnectTime: TimeInterval = 5 * 60 // 5 min
-        
         let checkInterval: TimeInterval = 1 * 60 // 1 min
         self.timer = Timer.scheduledTimer(withTimeInterval: checkInterval, repeats: true) { [weak self] _ in
+            if AppSettings.disconnectTime <= 0 { return }
             guard let lastAccess = self?.lastAccess else { return }
+            let disconnectTime = TimeInterval(AppSettings.disconnectTime * 60)
             
             let now = Date(timeIntervalSinceNow: 0)
             if now.timeIntervalSince(lastAccess) > disconnectTime {
