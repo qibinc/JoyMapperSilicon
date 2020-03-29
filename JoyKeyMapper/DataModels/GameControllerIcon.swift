@@ -31,6 +31,8 @@ let batteryCritical = NSImage(named: "battery_critical")!
 let batteryEmpty = NSImage(named: "battery_empty")!
 let batteryCharge = NSImage(named: "battery_charge")!
 
+let stop = NSImage(named: "stop")!
+
 func GameControllerIcon(for controller: GameController) -> NSImage {
     switch(controller.type) {
     case .ProController:
@@ -68,6 +70,11 @@ private func drawBatteryIcon(for controller: GameController) {
     }
 }
 
+private func drawStopIcon() {
+    let iconRect = NSRect(origin: CGPoint.zero, size: stop.size)
+    stop.draw(in: iconRect)
+}
+
 private func createProConIcon(for controller: GameController) -> NSImage {
     guard
         let leftGripColor = controller.leftGripColor,
@@ -103,6 +110,9 @@ private func createProConIcon(for controller: GameController) -> NSImage {
     proconBody.draw(in: iconRect)
     proconButton.draw(in: iconRect)
     drawBatteryIcon(for: controller)
+    if !controller.isEnabled {
+        drawStopIcon()
+    }
     icon.unlockFocus()
 
     return icon
@@ -128,6 +138,9 @@ private func createJoyConLIcon(for controller: GameController) -> NSImage {
     joyconLBody.draw(in: iconRect)
     joyconLButton.draw(in: iconRect)
     drawBatteryIcon(for: controller)
+    if !controller.isEnabled {
+        drawStopIcon()
+    }
     icon.unlockFocus()
 
     return icon
@@ -153,6 +166,9 @@ private func createJoyConRIcon(for controller: GameController) -> NSImage {
     joyconRBody.draw(in: iconRect)
     joyconRButton.draw(in: iconRect)
     drawBatteryIcon(for: controller)
+    if !controller.isEnabled {
+        drawStopIcon()
+    }
     icon.unlockFocus()
 
     return icon

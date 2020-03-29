@@ -59,6 +59,7 @@ class ControllerViewItem: NSCollectionViewItem {
         }
         menu.addItem(disconnectMenu)
         
+        /*
         // Separator
         menu.addItem(NSMenuItem.separator())
         
@@ -73,7 +74,8 @@ class ControllerViewItem: NSCollectionViewItem {
         let exportMenu = NSMenuItem(title: exportTitle, action: Selector(("exportKeyMappings")), keyEquivalent: "")
         exportMenu.target = self
         menu.addItem(exportMenu)
-
+        */
+        
         // Separator
         menu.addItem(NSMenuItem.separator())
 

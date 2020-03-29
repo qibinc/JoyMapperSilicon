@@ -8,14 +8,24 @@
 
 import JoyConSwift
 
-let batteryStringMap: [JoyCon.BatteryStatus: String] = [
-    .empty: "Empty",
-    .critical: "Critical",
-    .low: "Low",
-    .medium: "Medium",
-    .full: "Full",
-    .unknown: "Unknown"
-]
+extension JoyCon.BatteryStatus {
+    static let stringMap: [JoyCon.BatteryStatus: String] = [
+        .empty: "Empty",
+        .critical: "Critical",
+        .low: "Low",
+        .medium: "Medium",
+        .full: "Full",
+        .unknown: "Unknown"
+    ]
+    
+    var string: String {
+        return JoyCon.BatteryStatus.stringMap[self] ?? "Unknown"
+    }
+    
+    var localizedString: String {
+        return NSLocalizedString(self.string, comment: "BatteryStatus localized string")
+    }
+}
 
 class GameController {
     let data: ControllerData
@@ -42,8 +52,7 @@ class GameController {
 
     var isEnabled: Bool = true {
         didSet {
-            guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
-            delegate.updateControllersMenu()
+            self.updateControllerIcon()
         }
     }
     var isLeftDragging: Bool = false
@@ -61,12 +70,8 @@ class GameController {
     }
     private var _icon: NSImage?
     
-    var batteryString: String {
-        let battery = self.controller?.battery ?? .unknown
-        return batteryStringMap[battery] ?? "Unknown"
-    }
     var localizedBatteryString: String {
-        return NSLocalizedString(self.batteryString, comment: "BatteryString")
+        return (self.controller?.battery ?? .unknown).localizedString
     }
 
     init(data: ControllerData) {
@@ -372,6 +377,11 @@ class GameController {
     func updateControllerIcon() {
         self._icon = GameControllerIcon(for: self)
         NotificationCenter.default.post(name: .controllerIconChanged, object: self)
+        
+        DispatchQueue.main.async {
+            guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
+            delegate.updateControllersMenu()
+        }
     }
     
     // MARK: -

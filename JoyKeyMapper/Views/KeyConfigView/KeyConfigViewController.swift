@@ -36,8 +36,9 @@ class KeyConfigViewController: NSViewController, NSComboBoxDelegate, KeyConfigCo
         
         guard let keyMap = self.keyMap else { return }
 
-        let buttonName = keyMap.button ?? ""
-        self.titleLabel.stringValue = "\(buttonName) Button Key Config"
+        let title = NSLocalizedString("%@ Button Key Config", comment: "%@ Button Key Config")
+        let buttonName = NSLocalizedString((keyMap.button ?? ""), comment: "Button Name")
+        self.titleLabel.stringValue = String.localizedStringWithFormat(title, buttonName)
 
         let modifiers = NSEvent.ModifierFlags(rawValue: UInt(keyMap.modifiers))
         self.shiftKey.state = modifiers.contains(.shift) ? .on : .off
@@ -55,13 +56,6 @@ class KeyConfigViewController: NSViewController, NSComboBoxDelegate, KeyConfigCo
         self.keyCode = keyMap.keyCode
         self.keyAction.configDelegate = self
         self.keyAction.delegate = self
-        
-        self.setKeyActions()
-    }
-    
-    func setKeyActions() {
-        //self.keyAction.removeAllItems()
-        //self.keyAction.addItems(withObjectValues: keyCodeCells)
     }
     
     func updateKeyMap() {
@@ -103,6 +97,8 @@ class KeyConfigViewController: NSViewController, NSComboBoxDelegate, KeyConfigCo
             keyMap.keyCode = -1
             keyMap.mouseButton = Int16(self.mouseAction.selectedTag())
         }
+        
+        keyMap.isEnabled = true
         
         self.delegate?.setKeyConfig(controller: self)
     }

@@ -61,6 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
         }
         
         self.updateControllersMenu()
+        NotificationCenter.default.addObserver(self, selector: #selector(controllerIconChanged), name: .controllerIconChanged, object: nil)
         
         // Notification settings
         let center = UNUserNotificationCenter.current()
@@ -82,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
     @IBAction func quit(_ sender: Any) {
         NSApplication.shared.terminate(self)
     }
-    
+
     func updateControllersMenu() {
         self.controllersMenu?.submenu?.removeAllItems()
 
@@ -154,6 +155,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
         _ = self.dataManager?.save()
     }
     
+    // MARK: - Notifications
+    
+    @objc func controllerIconChanged(_ notification: NSNotification) {
+        self.updateControllersMenu()
+    }
+    
     // MARK: - UNUserNotificationCenterDelegate
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -200,6 +207,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
             $0.data.serialID == controller.serialID
         }) {
             gameController.controller = nil
+            gameController.updateControllerIcon()
             NotificationCenter.default.post(name: .controllerDisconnected, object: gameController)
             
             AppNotifications.notifyControllerDisconnected(gameController)

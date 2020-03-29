@@ -33,7 +33,7 @@ class AppNotifications {
         guard AppSettings.notifyBatteryFull else { return }
         
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("Battery fully charged", comment: "Battery fully charged")
+        content.title = NSLocalizedString("Battery fully charged", comment: "Title of a user notification")
         content.categoryIdentifier = "info"
         if let attachment = self.createControllerIconAttachment(for: controller) {
             content.attachments = [attachment]

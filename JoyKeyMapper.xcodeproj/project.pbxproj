@@ -77,16 +77,18 @@
 		DD05304D24272DAA0091B3C6 /* ControllerViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerViewItem.swift; sourceTree = "<group>"; };
 		DD05304E24272DAA0091B3C6 /* ControllerViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControllerViewItem.xib; sourceTree = "<group>"; };
 		DD05304F24272DAA0091B3C6 /* ControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
+		DD05305F2427AB6B0091B3C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD0530602427AB6B0091B3C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD0530612427AB7B0091B3C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD0530622427AB7B0091B3C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD0AE2E122DAB13100B68F05 /* JoyKeyMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyKeyMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0AE2E422DAB13100B68F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD0AE2EE22DAB13200B68F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD0AE2F022DAB13200B68F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD0AE2F122DAB13200B68F05 /* JoyKeyMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyKeyMapper.entitlements; sourceTree = "<group>"; };
 		DD8744722412941B00B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD87447A241495A700B3AB11 /* JoyKeyMapperLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyKeyMapperLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD87447C241495A700B3AB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD874480241495A900B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DD874486241495A900B3AB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD874488241495A900B3AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD874489241495A900B3AB11 /* JoyKeyMapperLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyKeyMapperLauncher.entitlements; sourceTree = "<group>"; };
 		DDAC3B3F24151C350022FF32 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
@@ -327,7 +329,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ja,
 			);
 			mainGroup = DD0AE2D822DAB13100B68F05;
 			productRefGroup = DD0AE2E222DAB13100B68F05 /* Products */;
@@ -448,7 +450,8 @@
 		DD0AE2ED22DAB13200B68F05 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DD0AE2EE22DAB13200B68F05 /* Base */,
+				DD0530602427AB6B0091B3C6 /* en */,
+				DD0530612427AB7B0091B3C6 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -456,7 +459,8 @@
 		DD874485241495A900B3AB11 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DD874486241495A900B3AB11 /* Base */,
+				DD05305F2427AB6B0091B3C6 /* en */,
+				DD0530622427AB7B0091B3C6 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -468,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -529,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
