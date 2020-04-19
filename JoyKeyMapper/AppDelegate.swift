@@ -71,10 +71,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
     // MARK: - Menu
     
     @IBAction func openAbout(_ sender: Any) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         NSApplication.shared.orderFrontStandardAboutPanel(NSApplication.shared)
     }
     
     @IBAction func openSettings(_ sender: Any) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         self.windowController?.showWindow(self)
         self.windowController?.window?.orderFrontRegardless()
         self.windowController?.window?.delegate = self

@@ -1,0 +1,31 @@
+name: Upload Release Asset
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Pods
+        run: pod install
+      - name: List available Xcode versions
+        run: ls /Applications | grep Xcode
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_11.4.app && /usr/bin/xcodebuild -version
+      - name: Build app
+        run: xcodebuild build -workspace JoyKeyMapper.xcworkspace -scheme JoyKeyMapper -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      - name: Dump file hierarchy
+        run: ls -R
+      - name: Archive build
+        run: zip build.zip -ry build/Build/Products/Release
+      - name: Upload build
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build.zip
+        

@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:joyconmapper.0spec.jp</string>
+		<string>applinks:joykeymapper.0spec.jp</string>
 	</array>
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
