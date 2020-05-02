@@ -32,6 +32,9 @@ Pods/
 # Carthage/Checkouts
 Carthage/Build
 
+# Intermediate files
+dmg/
+
 # etc
 Framework/
 *~
