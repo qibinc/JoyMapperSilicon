@@ -3,24 +3,34 @@
 # Set the number of git commits to Xcode build number
 # The source code is based on https://leenarts.net/2020/02/11/git-based-build-number-in-xcode/
 
-git=$(sh /etc/profile; which git)
-number_of_commits=$("$git" rev-list HEAD --count)
+GIT=`sh /etc/profile; which git`
 
-target_plist="$TARGET_BUILD_DIR/$INFOPLIST_PATH"
-dsym_plist="$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist"
+LATEST_TAG=`git describe --tags --abbrev=0 --match "v*.*.*"`
+if [ "${LATEST_TAG}" == "" ]; then
+  echo "error: Version tag not found"
+  exit 1
+fi
 
-for plist in "$target_plist" "$dsym_plist"; do
-  if [ -f "$plist" ]; then
-    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${number_of_commits}" "$plist"
+VERSION=`echo "${LATEST_TAG}" | cut -c 2-`
+
+NUM_COMMITS=`"${GIT}" rev-list HEAD --count`
+
+TARGET_PLIST="${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
+DSYM_PLIST="${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist"
+
+for PLIST in "${TARGET_PLIST}" "${DSYM_PLIST}"; do
+  if [ -f "${PLIST}" ]; then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString ${VERSION}" "${PLIST}"
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${NUM_COMMITS}" "${PLIST}"
   fi
 done
 
-settings_root_plist="$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Settings.bundle/Root.plist"
+ROOT_PLIST="${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Settings.bundle/Root.plist"
 
-if [ -f "$settings_root_plist" ]; then
-  settingsVersion="$APP_MARKETING_VERSION (${number_of_commits})"
-  /usr/libexec/PlistBuddy -c "Set :PreferenceSpecifiers:1:DefaultValue $settingsVersion" "$settings_root_plist"
+if [ -f "${ROOT_PLIST}" ]; then
+  SETTINGS_VERSION="${APP_MARKETING_VERSION} (${NUM_COMMITS})"
+  /usr/libexec/PlistBuddy -c "Set :PreferenceSpecifiers:1:DefaultValue ${SETTINGS_VERSION}" "${ROOT_PLIST}"
 else
-  echo "Could not find: $settings_root_plist"
+  echo "Could not find: ${ROOT_PLIST}"
   exit 0
 fi
