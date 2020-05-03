@@ -42,32 +42,12 @@ rm -rf "${TMP_DIR}"
 mkdir "${TMP_DIR}"
 cp -Rp "${SRC_APP_PATH}" "${APP_PATH}"
 
-# Codesign
-echo "Codesigning..."
-codesign -f -o runtime --timestamp -s "Developer ID Application" "${APP_PATH}/Contents/Library/LoginItems/JoyKeyMapperLauncher.app" --entitlements "${LAUNCHER_ENTITLEMENTS}"
-if [ $? -ne 0 ]; then
-  echo "error: Failed to sign to the helper app"
-  exit 1
-fi
-
-codesign -f -o runtime --timestamp -s "Developer ID Application" "${APP_PATH}/Contents/Frameworks/JoyConSwift.framework" --entitlements "${APP_ENTITLEMENTS}"
-if [ $? -ne 0 ]; then
-  echo "error: Failed to sign to the framework"
-  exit 2
-fi
-
-codesign -f -o runtime --timestamp -s "Developer ID Application" "${APP_PATH}" --entitlements "${APP_ENTITLEMENTS}"
-if [ $? -ne 0 ]; then
-  echo "error: Failed to sign to the app"
-  exit 3
-fi
-
 # Verify
 echo "Verifying..."
 codesign -dv --verbose=4 "${APP_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: The app is not correctly signed"
-  exit 4
+  exit 3
 fi
 
 # Create a dmg file
@@ -75,17 +55,17 @@ echo "Creating a dmg file at ${DMG_PATH}"
 dmgbuild -s "${PROJECT_ROOT}/scripts/dmg_settings.py" JoyKeyMapper "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to build a dmg file"
-  exit 5
+  exit 4
 fi
 
 echo "Code signing to the dmg file..."
 codesign -f -o runtime --timestamp -s "Developer ID Application" "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to sign to the dmg file"
-  exit 6
+  exit 5
 fi
 
-# Notarize
+# Notarize the dmg file
 echo "Notarizing the dmg file..."
 RESULT=`xcrun altool --notarize-app \
   --primary-bundle-id "${BUNDLE_ID}" \
@@ -98,7 +78,7 @@ echo "${RESULT}"
 REQUEST_UUID=`echo "${RESULT}" | grep "RequestUUID = " | sed "s/RequestUUID = \(.*\)$/\1/"`
 if [ "${REQUEST_UUID}" == "" ]; then
   echo "error: Failed to notarize the dmg file"
-  exit 7
+  exit 6
 fi
 
 echo "Waiting for the approval..."
@@ -123,21 +103,21 @@ for i in `seq ${RETRY}`; do
   else
     echo "${RESULT}"
     echo "error: Invalid notarization status: ${STATUS}"
-    exit 8
+    exit 7
   fi
 done
 
 echo "${RESULT}"
 if [ ${APPROVED} = false ] ; then
   echo "error: Approval timeout"
-  exit 9
+  exit 8
 fi
 
 # Staple a ticket to the dmg file
 xcrun stapler staple "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to staple a ticket"
-  exit 10
+  exit 9
 fi
 
-echo "Done.\n"
+echo "Done."
