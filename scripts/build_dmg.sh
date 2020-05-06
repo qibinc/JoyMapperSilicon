@@ -14,6 +14,12 @@ if [ "${APP_NAME}" != "JoyKeyMapper.app" ]; then
   exit 2
 fi
 
+VERSION=`git describe --tags --abbrev=0 --match "v*.*.*"`
+if [ "${VERSION}" == "" ]; then
+  echo "error: version tag not found"
+  exit 3
+fi
+
 echo "Source app path: ${SRC_APP_PATH}"
 
 PROJECT_ROOT="`dirname $0`/.."
@@ -21,7 +27,7 @@ TMP_DIR="${PROJECT_ROOT}/dmg"
 APP_PATH="${TMP_DIR}/JoyKeyMapper.app"
 LAUNCHER_ENTITLEMENTS="${PROJECT_ROOT}/JoyKeyMapperLauncher/JoyKeyMapperLauncher.entitlements"
 APP_ENTITLEMENTS="${PROJECT_ROOT}/JoyKeyMapper/JoyKeyMapper.entitlements"
-DMG_PATH="${TMP_DIR}/JoyKeyMapper.dmg"
+DMG_PATH="${TMP_DIR}/JoyKeyMapper-${VERSION}.dmg"
 BUNDLE_ID="jp.0spec.JoyKeyMapper"
 
 if [ "${APP_API_USER}" == "" ]; then
@@ -47,7 +53,7 @@ echo "Verifying..."
 codesign -dv --verbose=4 "${APP_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: The app is not correctly signed"
-  exit 3
+  exit 4
 fi
 
 # Create a dmg file
@@ -55,14 +61,14 @@ echo "Creating a dmg file at ${DMG_PATH}"
 dmgbuild -s "${PROJECT_ROOT}/scripts/dmg_settings.py" JoyKeyMapper "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to build a dmg file"
-  exit 4
+  exit 5
 fi
 
 echo "Code signing to the dmg file..."
 codesign -f -o runtime --timestamp -s "Developer ID Application" "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to sign to the dmg file"
-  exit 5
+  exit 6
 fi
 
 # Notarize the dmg file
@@ -78,7 +84,7 @@ echo "${RESULT}"
 REQUEST_UUID=`echo "${RESULT}" | grep "RequestUUID = " | sed "s/RequestUUID = \(.*\)$/\1/"`
 if [ "${REQUEST_UUID}" == "" ]; then
   echo "error: Failed to notarize the dmg file"
-  exit 6
+  exit 7
 fi
 
 echo "Waiting for the approval..."
@@ -103,21 +109,21 @@ for i in `seq ${RETRY}`; do
   else
     echo "${RESULT}"
     echo "error: Invalid notarization status: ${STATUS}"
-    exit 7
+    exit 8
   fi
 done
 
 echo "${RESULT}"
 if [ ${APPROVED} = false ] ; then
   echo "error: Approval timeout"
-  exit 8
+  exit 9
 fi
 
 # Staple a ticket to the dmg file
 xcrun stapler staple "${DMG_PATH}"
 if [ $? -ne 0 ]; then
   echo "error: Failed to staple a ticket"
-  exit 9
+  exit 10
 fi
 
 echo "Done."
