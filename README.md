@@ -3,7 +3,7 @@ Nintendo Joy-Con / ProController Key mapper for macOS
 
 ![screenshot](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_1.png)
 
-# Install
+## Install
 
 1. Download a dmg file
 
@@ -12,7 +12,7 @@ Nintendo Joy-Con / ProController Key mapper for macOS
 2. Copy JoyKeyMapper.app to Applications
 ![screenshot_install](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_2.png)
 
-# How to use
+## How to use
 
 1. Connect your controller via Bluetooth
 
@@ -41,3 +41,17 @@ Nintendo Joy-Con / ProController Key mapper for macOS
     ![screenshot_usage_2_4_1](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_6.png)
 
     ![screenshot_usage_2_4_2](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_7.png)
+
+3. Allow JoyKeyMapper to control Accessibility
+
+    3.1 When you start using your controller, you will see this alert.
+    
+    ![screenshot_usage_3_1](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_8.png)    
+    
+    3.2 Open "System Preferences" > "Security & Privacy" > "Privacy" tab > "Accessibility", and check "JoyKeyMapper.app"
+    
+    ![screenshot_usage_3_2](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_9.png)    
+
+## See also
+
+[JoyConSwift](https://github.com/magicien/JoyConSwift) - IOKit wrapper for Nintendo Joy-Con and ProController (macOS, Swift)
