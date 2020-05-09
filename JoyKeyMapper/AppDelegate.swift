@@ -125,7 +125,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
                     let charging = NSLocalizedString("charging", comment: "charging")
                     chargeString = " (\(charging))"
                 }
-                battery.title = "Battery: \(controller.localizedBatteryString)\(chargeString)"
+                let batteryString = NSLocalizedString("Battery", comment: "Battery")
+                battery.title = "\(batteryString): \(controller.localizedBatteryString)\(chargeString)"
             }
             battery.isEnabled = false
             item.submenu?.addItem(battery)

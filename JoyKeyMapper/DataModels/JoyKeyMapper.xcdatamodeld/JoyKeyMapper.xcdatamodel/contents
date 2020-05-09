@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AppConfig" representedClassName="AppConfig" syncable="YES" codeGenerationType="class">
-        <relationship name="app" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="AppData" inverseName="owner" inverseEntity="AppData" syncable="YES"/>
-        <relationship name="config" maxCount="1" deletionRule="Deny" destinationEntity="KeyConfig" inverseName="owner" inverseEntity="KeyConfig" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ControllerData" inverseName="appConfigs" inverseEntity="ControllerData" syncable="YES"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="AppData" inverseName="owner" inverseEntity="AppData"/>
+        <relationship name="config" maxCount="1" deletionRule="Deny" destinationEntity="KeyConfig" inverseName="owner" inverseEntity="KeyConfig"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ControllerData" inverseName="appConfigs" inverseEntity="ControllerData"/>
     </entity>
     <entity name="AppData" representedClassName="AppData" syncable="YES" codeGenerationType="class">
-        <attribute name="bundleID" attributeType="String" syncable="YES"/>
-        <attribute name="displayName" attributeType="String" syncable="YES"/>
-        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="AppConfig" inverseName="app" inverseEntity="AppConfig" syncable="YES"/>
+        <attribute name="bundleID" attributeType="String"/>
+        <attribute name="displayName" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="AppConfig" inverseName="app" inverseEntity="AppConfig"/>
     </entity>
     <entity name="ControllerData" representedClassName="ControllerData" syncable="YES" codeGenerationType="class">
-        <attribute name="bodyColor" attributeType="Binary" customClassName="NSColor" syncable="YES"/>
-        <attribute name="buttonColor" attributeType="Binary" customClassName="NSColor" syncable="YES"/>
-        <attribute name="leftGripColor" optional="YES" attributeType="Binary" customClassName="NSColor" syncable="YES"/>
-        <attribute name="rightGripColor" optional="YES" attributeType="Binary" customClassName="NSColor" syncable="YES"/>
-        <attribute name="serialID" attributeType="String" syncable="YES"/>
-        <attribute name="type" attributeType="String" defaultValueString="unknown" syncable="YES"/>
-        <relationship name="appConfigs" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AppConfig" inverseName="owner" inverseEntity="AppConfig" syncable="YES"/>
-        <relationship name="defaultConfig" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="defaultConfigOwner" inverseEntity="KeyConfig" syncable="YES"/>
+        <attribute name="bodyColor" attributeType="Binary" customClassName="NSColor"/>
+        <attribute name="buttonColor" attributeType="Binary" customClassName="NSColor"/>
+        <attribute name="leftGripColor" optional="YES" attributeType="Binary" customClassName="NSColor"/>
+        <attribute name="rightGripColor" optional="YES" attributeType="Binary" customClassName="NSColor"/>
+        <attribute name="serialID" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="unknown"/>
+        <relationship name="appConfigs" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AppConfig" inverseName="owner" inverseEntity="AppConfig"/>
+        <relationship name="defaultConfig" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="defaultConfigOwner" inverseEntity="KeyConfig"/>
     </entity>
     <entity name="KeyConfig" representedClassName="KeyConfig" syncable="YES" codeGenerationType="class">
-        <relationship name="defaultConfigOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ControllerData" inverseName="defaultConfig" inverseEntity="ControllerData" syncable="YES"/>
-        <relationship name="keyMaps" toMany="YES" deletionRule="Nullify" destinationEntity="KeyMap" inverseName="owner" inverseEntity="KeyMap" syncable="YES"/>
-        <relationship name="leftStick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="leftStickOwner" inverseEntity="StickConfig" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppConfig" inverseName="config" inverseEntity="AppConfig" syncable="YES"/>
-        <relationship name="rightStick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="rightStickOwner" inverseEntity="StickConfig" syncable="YES"/>
+        <relationship name="defaultConfigOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ControllerData" inverseName="defaultConfig" inverseEntity="ControllerData"/>
+        <relationship name="keyMaps" toMany="YES" deletionRule="Nullify" destinationEntity="KeyMap" inverseName="owner" inverseEntity="KeyMap"/>
+        <relationship name="leftStick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="leftStickOwner" inverseEntity="StickConfig"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppConfig" inverseName="config" inverseEntity="AppConfig"/>
+        <relationship name="rightStick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="rightStickOwner" inverseEntity="StickConfig"/>
     </entity>
     <entity name="KeyMap" representedClassName="KeyMap" syncable="YES" codeGenerationType="class">
-        <attribute name="button" attributeType="String" syncable="YES"/>
-        <attribute name="isEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="keyCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="modifiers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="mouseButton" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="keyMaps" inverseEntity="KeyConfig" syncable="YES"/>
-        <relationship name="stick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="keyMaps" inverseEntity="StickConfig" syncable="YES"/>
+        <attribute name="button" attributeType="String"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="keyCode" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
+        <attribute name="modifiers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mouseButton" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="keyMaps" inverseEntity="KeyConfig"/>
+        <relationship name="stick" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StickConfig" inverseName="keyMaps" inverseEntity="StickConfig"/>
     </entity>
     <entity name="StickConfig" representedClassName="StickConfig" syncable="YES" codeGenerationType="class">
-        <attribute name="speed" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="keyMaps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyMap" inverseName="stick" inverseEntity="KeyMap" syncable="YES"/>
-        <relationship name="leftStickOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="leftStick" inverseEntity="KeyConfig" syncable="YES"/>
-        <relationship name="rightStickOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="rightStick" inverseEntity="KeyConfig" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="keyMaps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyMap" inverseName="stick" inverseEntity="KeyMap"/>
+        <relationship name="leftStickOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="leftStick" inverseEntity="KeyConfig"/>
+        <relationship name="rightStickOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyConfig" inverseName="rightStick" inverseEntity="KeyConfig"/>
     </entity>
     <elements>
         <element name="AppConfig" positionX="-85.96484375" positionY="15.00390625" width="128" height="90"/>
         <element name="AppData" positionX="120.7578125" positionY="-16.3203125" width="128" height="105"/>
         <element name="ControllerData" positionX="-306.46484375" positionY="66.05078125" width="128" height="163"/>
         <element name="KeyConfig" positionX="-27.51953125" positionY="176.2734375" width="128" height="118"/>
-        <element name="KeyMap" positionX="191.609375" positionY="191.7109375" width="128" height="150"/>
+        <element name="KeyMap" positionX="191.609375" positionY="191.7109375" width="128" height="148"/>
         <element name="StickConfig" positionX="-23.2109375" positionY="354.82421875" width="128" height="118"/>
     </elements>
 </model>

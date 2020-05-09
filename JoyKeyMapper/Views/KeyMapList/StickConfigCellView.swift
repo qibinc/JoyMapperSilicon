@@ -19,9 +19,9 @@ class StickConfigCellView: NSTableCellView {
         self.typeButton = NSPopUpButton(frame: frameRect)
         super.init(frame: frameRect)
 
-        self.typeButton.addItems(withTitles: ["Mouse", "Key"])
-        //self.typeButton.action = Selector(("typeDidChange:"))
-        //self.typeButton.target = self
+        let mouse = NSLocalizedString("Mouse", comment: "Mouse")
+        let key = NSLocalizedString("Key", comment: "Key")
+        self.typeButton.addItems(withTitles: [mouse, key])
 
         self.addSubview(self.typeButton)
     }

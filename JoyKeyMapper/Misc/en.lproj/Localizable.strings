@@ -1,0 +1,157 @@
+// Common
+"Cancel" = "Cancel";
+"OK" = "OK";
+
+// AppDelegate.swift
+"Enable key mappings" = "Enable key mappings";
+"Disconnect" = "Disconnect";
+"charging" = "charging";
+"Battery" = "Battery";
+"No controllers connected" = "No controllers connected";
+"Could not save changes while quitting. Quit anyway?" = "Could not save changes while quitting. Quit anyway?";
+"Quitting now will lose any changes you have made since the last successful save" = "Quitting now will lose any changes you have made since the last successful save";
+"Quit anyway" = "Quit anyway";
+
+// AppNotifications.swift
+"Battery fully charged" = "Battery fully charged";
+"Battery level" = "Battery level";
+"Charge started" = "Charge started";
+"Charge stopped" = "Charge stopped";
+"Controller connected" = "Controller connected";
+"Controller disconnected" = "Controller disconnected";
+
+// GameController.swift
+"Empty" = "Empty";
+"Critical" = "Critical";
+"Low" = "Low";
+"Medium" = "Medium";
+"Full" = "Full";
+"Unknown" = "Unknown";
+
+// ViewController.swift
+"Choose an app to add" = "Choose an app to add";
+"Do you really want to delete the settings for %@?" = "Do you really want to delete the settings for %@?";
+
+// ViewController+NSCollectionViewDelegate
+"Connected" = "Connected";
+
+// ControllerViewItem.swift
+"Enable key mappings" = "Enable key mappings";
+"Disconnect" = "Disconnect";
+"Remove" = "Remove";
+"Do you really want to remove the controller?" = "Do you really want to remove the controller?";
+
+// StickConfigCellView.swift
+"Mouse" = "Mouse";
+"Key" = "Key";
+
+// SpecialKeyName.swiift
+"Section" = "Section";
+"Return" = "Return";
+"Tab" = "Tab";
+"Space" = "Space";
+"Delete" = "Delete";
+"Escape" = "Escape";
+"⌘" = "⌘";
+"⇧" = "⇧";
+"CapsLock" = "CapsLock";
+"⌥" = "⌥";
+"⌃" = "⌃";
+"Right⇧" = "Right⇧";
+"Right⌥" = "Right⌥";
+"Right⌃" = "Right⌃";
+"fn" = "fn";
+"F1" = "F1";
+"F2" = "F2";
+"F3" = "F3";
+"F4" = "F4";
+"F5" = "F5";
+"F6" = "F6";
+"F7" = "F7";
+"F8" = "F8";
+"F9" = "F9";
+"F10" = "F10";
+"F11" = "F11";
+"F12" = "F12";
+"F13" = "F13";
+"F14" = "F14";
+"F15" = "F15";
+"F16" = "F16";
+"F17" = "F17";
+"F18" = "F18";
+"F19" = "F19";
+"F20" = "F20";
+"Keypad 0" = "Keypad 0";
+"Keypad 1" = "Keypad 1";
+"Keypad 2" = "Keypad 2";
+"Keypad 3" = "Keypad 3";
+"Keypad 4" = "Keypad 4";
+"Keypad 5" = "Keypad 5";
+"Keypad 6" = "Keypad 6";
+"Keypad 7" = "Keypad 7";
+"Keypad 8" = "Keypad 8";
+"Keypad 9" = "Keypad 9";
+"Keypad *" = "Keypad *";
+"Keypad +" = "Keypad +";
+"Keypad Clear" = "Keypad Clear";
+"Keypad ," = "Keypad ,";
+"Keypad Enter" = "Keypad Enter";
+"Keypad -" = "Keypad -";
+"Keypad /" = "Keypad /";
+"Keypad =" = "Keypad =";
+"Keypad Decimal" = "Keypad Decimal";
+"VolumeUp" = "VolumeUp";
+"VolumeDown" = "VolumeDown";
+"Mute" = "Mute";
+"¥" = "¥";
+"_" = "_";
+"Eisu" = "Eisu";
+"Kana" = "Kana";
+"Help" = "Help";
+"Home" = "Home";
+"PageUp" = "PageUp";
+"PageDown" = "PageDown";
+"ForwardDelete" = "ForwardDelete";
+"End" = "End";
+"←" = "←";
+"→" = "→";
+"↓" = "↓";
+"↑" = "↑";
+
+// ViewController+NSOutlineViewDelegate.swift
+"Up" = "Up";
+"Right" = "Right";
+"Down" = "Down";
+"Left" = "Left";
+"A" = "A";
+"B" = "B";
+"X" = "X";
+"Y" = "Y";
+"L" = "L";
+"ZL" = "ZL";
+"R" = "R";
+"ZR" = "ZR";
+"Minus" = "Minus";
+"Plus" = "Plus";
+"Capture" = "Capture";
+"Home" = "Home";
+"LStick Push" = "LStick Push";
+"RStick Push" = "RStick Push";
+"Left SL" = "Left SL";
+"Left SR" = "Left SR";
+"Right SL" = "Right SL";
+"Right SR" = "Right SR";
+"Left Stick" = "Left Stick";
+"Right Stick" = "Right Stick";
+"Mouse Wheel" = "Mouse Wheel";
+"None" = "None";
+"Speed" = "Speed";
+
+// KeyConfigViewController.swift
+"%@ Button Key Config" = "%@ Button Key Config";
+
+// Utils.swift
+"none" = "none";
+"Left Click" = "Left Click";
+"Right Click" = "Right Click";
+"Center Click" = "Center Click";

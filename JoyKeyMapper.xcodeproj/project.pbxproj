@@ -36,6 +36,7 @@
 		DD874481241495A900B3AB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD874480241495A900B3AB11 /* Assets.xcassets */; };
 		DD874487241495A900B3AB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD874485241495A900B3AB11 /* Main.storyboard */; };
 		DD87448E2414B8B400B3AB11 /* JoyKeyMapperLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD87447A241495A700B3AB11 /* JoyKeyMapperLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDA072B1246699C500F9B80B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDA072B3246699C500F9B80B /* Localizable.strings */; };
 		DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC3B3F24151C350022FF32 /* AppNotifications.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		DD874480241495A900B3AB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD874488241495A900B3AB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD874489241495A900B3AB11 /* JoyKeyMapperLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyKeyMapperLauncher.entitlements; sourceTree = "<group>"; };
+		DDA072B2246699C500F9B80B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDA072B4246699CA00F9B80B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDAC3B3F24151C350022FF32 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,7 @@
 			children = (
 				DD05303724272D920091B3C6 /* Notifications.swift */,
 				DD05303824272D920091B3C6 /* Utils.swift */,
+				DDA072B3246699C500F9B80B /* Localizable.strings */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -349,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0AE2EF22DAB13200B68F05 /* Main.storyboard in Resources */,
+				DDA072B1246699C500F9B80B /* Localizable.strings in Resources */,
 				DD8744732412941B00B3AB11 /* Assets.xcassets in Resources */,
 				DD05305D24272DAA0091B3C6 /* ControllerViewItem.xib in Resources */,
 			);
@@ -482,6 +487,15 @@
 				DD0530622427AB7B0091B3C6 /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DDA072B3246699C500F9B80B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDA072B2246699C500F9B80B /* en */,
+				DDA072B4246699CA00F9B80B /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

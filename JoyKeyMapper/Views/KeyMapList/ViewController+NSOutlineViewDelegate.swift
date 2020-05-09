@@ -39,8 +39,8 @@ let directionNames: [JoyCon.StickDirection: String]  = [
     .Down: "Down",
     .Left: "Left"
 ]
-let leftStickName = "Left Stick"
-let rightStickName = "Right Stick"
+let leftStickName = NSLocalizedString("Left Stick", comment: "Left Stick")
+let rightStickName = NSLocalizedString("Right Stick", comment: "Right Stick")
 
 let controllerButtons: [JoyCon.ControllerType: [JoyCon.Button]] = [
     .JoyConL: [.Up, .Right, .Down, .Left, .LeftSL, .LeftSR, .L, .ZL, .Minus, .Capture, .LStick],
@@ -49,6 +49,9 @@ let controllerButtons: [JoyCon.ControllerType: [JoyCon.Button]] = [
 ]
 let stickerDirections: [JoyCon.StickDirection] = [
     .Up, .Right, .Down, .Left
+]
+let stickTypes: [StickType] = [
+    .Key, .Mouse, .MouseWheel, .None
 ]
 
 let buttonNameColumnID = "buttonName"
@@ -227,6 +230,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             let view = NSTextView(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size))
             view.isEditable = false
             view.font = itemView.buttonName.font
+            view.backgroundColor = .clear
 
             if stick == .LStick {
                 view.string = leftStickName
@@ -243,10 +247,10 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             }
 
             let selection = NSPopUpButton(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size))
-            selection.addItem(withTitle: StickType.Key.rawValue) // TODO: i18n
-            selection.addItem(withTitle: StickType.Mouse.rawValue)
-            selection.addItem(withTitle: StickType.MouseWheel.rawValue)
-            selection.addItem(withTitle: StickType.None.rawValue)
+            stickTypes.forEach { type in
+                selection.addItem(withTitle: NSLocalizedString(type.rawValue, comment: ""))
+                selection.lastItem?.representedObject = type
+            }
             
             if stickConfig.type == StickType.Mouse.rawValue {
                 selection.selectItem(at: 1)
@@ -318,7 +322,8 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             let view = NSTextView(frame: NSRect(origin: CGPoint.zero, size: itemView.frame.size))
             view.isEditable = false
             view.font = itemView.buttonName.font
-            view.string = "Speed" // TODO: i18n
+            view.string = NSLocalizedString("Speed", comment: "Speed")
+            view.backgroundColor = .clear
             
             return view
         }
@@ -369,7 +374,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             }
             
             itemView.buttonName.state = keyMap.isEnabled ? .on : .off
-            itemView.buttonName.title = directionName
+            itemView.buttonName.title = NSLocalizedString(directionName, comment: "")
             if stick == .LStick {
                 itemView.buttonName.action = Selector(("leftStickDirectionCheckDidChange:"))
             } else if stick == .RStick {
@@ -433,7 +438,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             }
             
             itemView.buttonName.state = (keyMap?.isEnabled ?? false) ? .on : .off
-            itemView.buttonName.title = buttonNames[button] ?? ""
+            itemView.buttonName.title = NSLocalizedString(buttonNames[button] ?? "", comment: "")
             itemView.buttonName.action = Selector(("checkDidChange:"))
             itemView.buttonName.target = self
             
@@ -570,14 +575,16 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
     
     @objc func leftStickTypeDidChange(_ sender: NSPopUpButton) {
         guard let config = self.selectedKeyConfig else { return }
-        config.leftStick?.type = sender.titleOfSelectedItem ?? ""
+        let type = sender.selectedItem?.representedObject as? StickType
+        config.leftStick?.type = type?.rawValue ?? ""
         self.configTableView.reloadData()
         self.selectedController?.updateKeyMap()
     }
     
     @objc func rightStickTypeDidChange(_ sender: NSPopUpButton) {
         guard let config = self.selectedKeyConfig else { return }
-        config.rightStick?.type = sender.titleOfSelectedItem ?? ""
+        let type = sender.selectedItem?.representedObject as? StickType
+        config.rightStick?.type = type?.rawValue ?? ""
         self.configTableView.reloadData()
         self.selectedController?.updateKeyMap()
     }

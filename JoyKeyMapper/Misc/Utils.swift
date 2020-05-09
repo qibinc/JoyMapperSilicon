@@ -22,16 +22,16 @@ let none = NSLocalizedString("none", comment: "none")
 func convertModifierKeys(_ modifiers: NSEvent.ModifierFlags) -> String {
     var keyName = ""
     if modifiers.contains(.control) {
-        keyName += "⌃"
+        keyName += NSLocalizedString("⌃", comment: "⌃")
     }
     if modifiers.contains(.option) {
-        keyName += "⌥"
+        keyName += NSLocalizedString("⌥", comment: "⌥")
     }
     if modifiers.contains(.shift) {
-        keyName += "⇧"
+        keyName += NSLocalizedString("⇧", comment: "⇧")
     }
     if modifiers.contains(.command) {
-        keyName += "⌘"
+        keyName += NSLocalizedString("⌘", comment: "⌘")
     }
     return keyName
 }

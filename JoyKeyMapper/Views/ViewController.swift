@@ -134,8 +134,8 @@ class ViewController: NSViewController {
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = String.localizedStringWithFormat(NSLocalizedString("Do you really want to delete the settings for %@?", comment: "Do you really want to delete the settings for <app>?"), appName)
-        alert.addButton(withTitle: "Cancel")
-        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel"))
+        alert.addButton(withTitle: NSLocalizedString("OK", comment: "OK"))
         let result = alert.runModal()
         
         if result == .alertSecondButtonReturn {
