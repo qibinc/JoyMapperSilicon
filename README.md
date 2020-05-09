@@ -1,3 +1,5 @@
+[日本語](https://github.com/magicien/JoyKeyMapper/blob/master/lang/ja/README.md)
+
 # JoyKeyMapper
 Nintendo Joy-Con/ProController Key mapper for macOS
 
