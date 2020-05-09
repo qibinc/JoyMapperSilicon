@@ -1,5 +1,5 @@
 # JoyKeyMapper
-Nintendo Joy-Con / ProController Key mapper for macOS
+Nintendo Joy-Con/ProController Key mapper for macOS
 
 ![screenshot](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_1.png)
 
@@ -20,7 +20,7 @@ Nintendo Joy-Con / ProController Key mapper for macOS
     
     1.2. Hold down your controller's sync button
     
-    1.3. Click "Connect" button
+    1.3. Click the "Connect" button
     
     ![screenshot_usage_1_3](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_3.png)
 
@@ -28,7 +28,7 @@ Nintendo Joy-Con / ProController Key mapper for macOS
 
     2.1 Launch JoyKeyMapper.app
     
-    2.2 Choose "Settings..." menu
+    2.2 Choose the "Settings..." menu
 
     ![screenshot_usage_2_2](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_4.png)    
 
