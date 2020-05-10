@@ -9,7 +9,7 @@ Nintendo Joy-Con/ProController Key mapper for macOS
 
 1. Download a dmg file
 
-    - [JoyKeyMapper-v0.0.1.dmg](https://github.com/magicien/JoyKeyMapper/releases/download/v0.0.1/JoyKeyMapper-v0.0.1.dmg)
+    - [JoyKeyMapper-v0.0.2.dmg](https://github.com/magicien/JoyKeyMapper/releases/download/v0.0.2/JoyKeyMapper-v0.0.2.dmg)
 
 2. Copy JoyKeyMapper.app to Applications
 ![screenshot_install](https://github.com/magicien/JoyKeyMapper/blob/master/resources/screenshot/screenshot_2.png)

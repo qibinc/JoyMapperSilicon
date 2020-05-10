@@ -9,7 +9,7 @@ macOS用Joy-Con/ProControllerキーマッピングツール
 
 1. dmgファイルをダウンロードする
 
-    - [JoyKeyMapper-v0.0.1.dmg](https://github.com/magicien/JoyKeyMapper/releases/download/v0.0.1/JoyKeyMapper-v0.0.1.dmg)
+    - [JoyKeyMapper-v0.0.2.dmg](https://github.com/magicien/JoyKeyMapper/releases/download/v0.0.2/JoyKeyMapper-v0.0.2.dmg)
 
 2. JoyKeyMapper.appをApplicationsへコピーする
 ![screenshot_install](https://github.com/magicien/JoyKeyMapper/blob/master/lang/ja/screenshot_2.png)
