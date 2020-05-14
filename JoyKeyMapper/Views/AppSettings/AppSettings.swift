@@ -41,7 +41,7 @@ class AppSettings {
     
     static var notifyBatteryCharge: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: "notifyBattteryCharge")
+            return UserDefaults.standard.bool(forKey: "notifyBatteryCharge")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "notifyBatteryCharge")

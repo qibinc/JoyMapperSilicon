@@ -39,7 +39,7 @@ class AppSettingsViewController: NSViewController {
         AppSettings.notifyBatteryLevel = self.notifyBatteryLevel.state == .on
     }
     
-    @IBAction func didChangeNotifyBatteryChange(_ sender: NSButton) {
+    @IBAction func didChangeNotifyBatteryCharge(_ sender: NSButton) {
         AppSettings.notifyBatteryCharge = self.notifyBatteryCharge.state == .on
     }
     

@@ -227,7 +227,7 @@ class DataManager: NSObject {
         let stickConfig = StickConfig(context: self.container.viewContext)
 
         stickConfig.speed = 10.0
-        stickConfig.type = StickType.Mouse.rawValue
+        stickConfig.type = StickType.None.rawValue
 
         let left = self.createKeyMap()
         left.button = StickDirection.Left.rawValue
