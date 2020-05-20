@@ -5,7 +5,11 @@ macOS用Joy-Con/ProControllerキーマッピングツール
 
 ![screenshot](https://github.com/magicien/JoyKeyMapper/blob/master/lang/ja/screenshot_1.png)
 
-## インストール
+## App Store からインストール（推奨）
+
+[Mac App Store のページ](https://apps.apple.com/app/joykeymapper/id1511416593)
+
+## Github からインストール
 
 1. dmgファイルをダウンロードする
 
