@@ -193,32 +193,37 @@ class GameController {
     }
     
     func buttonPressHandler(config: KeyMap) {
-        let source = CGEventSource(stateID: .hidSystemState)
+        DispatchQueue.main.async {
+            let source = CGEventSource(stateID: .hidSystemState)
 
-        if config.keyCode >= 0 {
-            DispatchQueue.main.async {
+            if config.keyCode >= 0 {
+                metaKeyEvent(config: config, keyDown: true)
+                
                 let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: true)
                 event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
                 event?.post(tap: .cghidEventTap)
             }
-        }
         
-        if config.mouseButton >= 0 {
-            let mousePos = NSEvent.mouseLocation
-            let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
+            if config.mouseButton >= 0 {
+                let mousePos = NSEvent.mouseLocation
+                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
 
-            var event: CGEvent?
-            if config.mouseButton == 0 {
-                event = CGEvent(mouseEventSource: source, mouseType: .leftMouseDown, mouseCursorPosition: cursorPos, mouseButton: .left)
-                self.isLeftDragging = true
-            } else if config.mouseButton == 1 {
-                event = CGEvent(mouseEventSource: source, mouseType: .rightMouseDown, mouseCursorPosition: cursorPos, mouseButton: .right)
-                self.isRightDragging = true
-            } else if config.mouseButton == 2 {
-                event = CGEvent(mouseEventSource: source, mouseType: .otherMouseDown, mouseCursorPosition: cursorPos, mouseButton: .center)
-                self.isCenterDragging = true
+                metaKeyEvent(config: config, keyDown: true)
+
+                var event: CGEvent?
+                if config.mouseButton == 0 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .leftMouseDown, mouseCursorPosition: cursorPos, mouseButton: .left)
+                    self.isLeftDragging = true
+                } else if config.mouseButton == 1 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .rightMouseDown, mouseCursorPosition: cursorPos, mouseButton: .right)
+                    self.isRightDragging = true
+                } else if config.mouseButton == 2 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .otherMouseDown, mouseCursorPosition: cursorPos, mouseButton: .center)
+                    self.isCenterDragging = true
+                }
+                event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
+                event?.post(tap: .cghidEventTap)
             }
-            event?.post(tap: .cghidEventTap)
         }
     }
     
@@ -228,32 +233,34 @@ class GameController {
     }
     
     func buttonReleaseHandler(config: KeyMap) {
-        let source = CGEventSource(stateID: .hidSystemState)
-        
-        if config.keyCode >= 0 {
-            DispatchQueue.main.async {
-                let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: false)
-                event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
+        DispatchQueue.main.async {
+            let source = CGEventSource(stateID: .hidSystemState)
+            
+            if config.keyCode >= 0 {
+                    let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: false)
+                    event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
+                    event?.post(tap: .cghidEventTap)
+                    
+                    metaKeyEvent(config: config, keyDown: false)
+            }
+
+            if config.mouseButton >= 0 {
+                let mousePos = NSEvent.mouseLocation
+                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
+                
+                var event: CGEvent?
+                if config.mouseButton == 0 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: cursorPos, mouseButton: .left)
+                    self.isLeftDragging = false
+                } else if config.mouseButton == 1 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .rightMouseUp, mouseCursorPosition: cursorPos, mouseButton: .right)
+                    self.isRightDragging = false
+                } else if config.mouseButton == 2 {
+                    event = CGEvent(mouseEventSource: source, mouseType: .otherMouseUp, mouseCursorPosition: cursorPos, mouseButton: .center)
+                    self.isCenterDragging = false
+                }
                 event?.post(tap: .cghidEventTap)
             }
-        }
-
-        if config.mouseButton >= 0 {
-            let mousePos = NSEvent.mouseLocation
-            let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
-            
-            var event: CGEvent?
-            if config.mouseButton == 0 {
-                event = CGEvent(mouseEventSource: source, mouseType: .leftMouseUp, mouseCursorPosition: cursorPos, mouseButton: .left)
-                self.isLeftDragging = false
-            } else if config.mouseButton == 1 {
-                event = CGEvent(mouseEventSource: source, mouseType: .rightMouseUp, mouseCursorPosition: cursorPos, mouseButton: .right)
-                self.isRightDragging = false
-            } else if config.mouseButton == 2 {
-                event = CGEvent(mouseEventSource: source, mouseType: .otherMouseUp, mouseCursorPosition: cursorPos, mouseButton: .center)
-                self.isCenterDragging = false
-            }
-            event?.post(tap: .cghidEventTap)
         }
     }
     
@@ -337,7 +344,6 @@ class GameController {
     func batteryChangeHandler(newState: JoyCon.BatteryStatus, oldState: JoyCon.BatteryStatus) {
         self.updateControllerIcon()
         
-        Swift.print("*** battery change: \(oldState.rawValue) -> \(newState.rawValue)")
         if newState == .full && oldState != .unknown {
             AppNotifications.notifyBatteryFullCharge(self)
         }

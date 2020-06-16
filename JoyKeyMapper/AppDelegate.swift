@@ -289,6 +289,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
         guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
             let bundleID = app.bundleIdentifier else { return }
         
+        resetMetaKeyState()
+        
         self.controllers.forEach { controller in
             controller.switchApp(bundleID: bundleID)
         }

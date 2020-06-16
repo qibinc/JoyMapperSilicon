@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		93256183A11EAD19ADC85FF9 /* Pods_JoyKeyMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480DB1F0DAF805C943A9656A /* Pods_JoyKeyMapper.framework */; };
+		DD0389E82497D911009090BE /* MetaKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0389E72497D911009090BE /* MetaKeyState.swift */; };
 		DD05303224272D7A0091B3C6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05302D24272D7A0091B3C6 /* DataManager.swift */; };
 		DD05303324272D7A0091B3C6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05302E24272D7A0091B3C6 /* GameController.swift */; };
 		DD05303424272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD05302F24272D7A0091B3C6 /* JoyKeyMapper.xcdatamodeld */; };
@@ -57,6 +58,7 @@
 		475E07CC10AB2EDFD3A1DE83 /* Pods-JoyKeyMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyKeyMapper.release.xcconfig"; path = "Target Support Files/Pods-JoyKeyMapper/Pods-JoyKeyMapper.release.xcconfig"; sourceTree = "<group>"; };
 		480DB1F0DAF805C943A9656A /* Pods_JoyKeyMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JoyKeyMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0B679D3FC9AD29E57D0287 /* Pods-JoyKeyMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyKeyMapper.debug.xcconfig"; path = "Target Support Files/Pods-JoyKeyMapper/Pods-JoyKeyMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		DD0389E72497D911009090BE /* MetaKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaKeyState.swift; sourceTree = "<group>"; };
 		DD05302D24272D7A0091B3C6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DD05302E24272D7A0091B3C6 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		DD05303024272D7A0091B3C6 /* JoyKeyMapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JoyKeyMapper.xcdatamodel; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				DD05302D24272D7A0091B3C6 /* DataManager.swift */,
 				DD05302E24272D7A0091B3C6 /* GameController.swift */,
 				DD05303124272D7A0091B3C6 /* GameControllerIcon.swift */,
+				DD0389E72497D911009090BE /* MetaKeyState.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				DD05305624272DAA0091B3C6 /* SpecialKeyName.swift in Sources */,
 				DD05305524272DAA0091B3C6 /* StickConfigCellView.swift in Sources */,
 				DDAC3B4024151C350022FF32 /* AppNotifications.swift in Sources */,
+				DD0389E82497D911009090BE /* MetaKeyState.swift in Sources */,
 				DD05305424272DAA0091B3C6 /* AppSettingsViewController.swift in Sources */,
 				DD05305224272DAA0091B3C6 /* KeyConfigComboBox.swift in Sources */,
 				DD05305E24272DAA0091B3C6 /* ControllerView.swift in Sources */,
