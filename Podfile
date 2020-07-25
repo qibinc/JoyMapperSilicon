@@ -6,6 +6,6 @@ target 'JoyKeyMapper' do
   use_frameworks!
 
   # Pods for JoyKeyMapper
-  pod 'JoyConSwift', '0.0.5'
+  pod 'JoyConSwift', '0.1.2'
 
 end

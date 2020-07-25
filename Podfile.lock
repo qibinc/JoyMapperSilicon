@@ -1,16 +1,16 @@
 PODS:
-  - JoyConSwift (0.0.5)
+  - JoyConSwift (0.1.2)
 
 DEPENDENCIES:
-  - JoyConSwift (= 0.0.5)
+  - JoyConSwift (= 0.1.2)
 
 SPEC REPOS:
   trunk:
     - JoyConSwift
 
 SPEC CHECKSUMS:
-  JoyConSwift: 1b11f06e0192ece8cfc79bd0f0634aa3dba3814f
+  JoyConSwift: 925e59c82d91ddf5381079612a84741f40cc1ecd
 
-PODFILE CHECKSUM: 0307eda4a09408d639dbf218e70b2537a1979c51
+PODFILE CHECKSUM: e982e7c0dcf71eb98d451ee7e1bc5b7d358a6dc4
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
