@@ -114,6 +114,7 @@ class KeyConfigViewController: NSViewController, NSComboBoxDelegate, KeyConfigCo
     func setKeyCode(_ keyCode: UInt16) {
         self.keyCode = Int16(keyCode)
         self.keyAction.stringValue = getKeyName(keyCode: keyCode)
+        self.keyRadioButton.state = .on
     }
     
     @IBAction func didPushRadioButton(_ sender: NSButton) {}
