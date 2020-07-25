@@ -9,6 +9,17 @@
 import Foundation
 import InputMethodKit
 
+let SpecialKey_BaseValue = 0x7000
+let SpecialKey_BrightnessUp = SpecialKey_BaseValue + Int(NX_KEYTYPE_BRIGHTNESS_UP)
+let SpecialKey_BrightnessDown = SpecialKey_BaseValue + Int(NX_KEYTYPE_BRIGHTNESS_DOWN)
+let SpecialKey_Power = SpecialKey_BaseValue + Int(NX_POWER_KEY)
+let SpecialKey_NumLock = SpecialKey_BaseValue + Int(NX_KEYTYPE_NUM_LOCK)
+let SpecialKey_Play = SpecialKey_BaseValue + Int(NX_KEYTYPE_PLAY)
+let SpecialKey_Next = SpecialKey_BaseValue + Int(NX_KEYTYPE_NEXT)
+let SpecialKey_Previous = SpecialKey_BaseValue + Int(NX_KEYTYPE_PREVIOUS)
+let SpecialKey_Fast = SpecialKey_BaseValue + Int(NX_KEYTYPE_FAST)
+let SpecialKey_Rewind = SpecialKey_BaseValue + Int(NX_KEYTYPE_REWIND)
+
 let SpecialKeyName: [Int:String] = [
     kVK_ISO_Section: "Section",
     kVK_Return: "Return",
@@ -80,9 +91,41 @@ let SpecialKeyName: [Int:String] = [
     kVK_LeftArrow: "←",
     kVK_RightArrow: "→",
     kVK_DownArrow: "↓",
-    kVK_UpArrow: "↑"
+    kVK_UpArrow: "↑",
+    SpecialKey_BrightnessUp: "BrightnessUp",
+    SpecialKey_BrightnessDown: "BrightnessDown",
+    SpecialKey_NumLock: "NumLock",
+    SpecialKey_Play: "Play",
+    SpecialKey_Next: "Next",
+    SpecialKey_Previous: "Previous",
+    SpecialKey_Fast: "Fast",
+    SpecialKey_Rewind: "Rewind"
 ]
 
 let LocalizedSpecialKeyName = SpecialKeyName.mapValues {
     NSLocalizedString($0, comment: $0)
 }
+
+let systemDefinedKey: [Int: Int32] = [
+    kVK_VolumeUp: NX_KEYTYPE_SOUND_UP,
+    kVK_VolumeDown: NX_KEYTYPE_SOUND_DOWN,
+    SpecialKey_BrightnessUp: NX_KEYTYPE_BRIGHTNESS_UP,
+    SpecialKey_BrightnessDown: NX_KEYTYPE_BRIGHTNESS_DOWN,
+    // kVK_CapsLock: NX_KEYTYPE_CAPS_LOCK,
+    // kVK_Help: NX_KEYTYPE_HELP,
+    // NX_POWER_KEY
+    kVK_Mute: NX_KEYTYPE_MUTE,
+    // NX_UP_ARROW_KEY
+    // NX_DOWN_ARROW_KEY
+    // NX_KEYTYPE_NUM_LOCK,
+    // NX_KEYTYPE_CONTRAST_UP
+    // NX_KEYTYPE_CONTRAST_DOWN
+    // NX_KEYTYPE_LAUNCH_PANEL
+    // NX_KEYTYPE_EJECT
+    // NX_KEYTYPE_VIDMIRROR
+    SpecialKey_Play: NX_KEYTYPE_PLAY,
+    SpecialKey_Next: NX_KEYTYPE_NEXT,
+    SpecialKey_Previous: NX_KEYTYPE_PREVIOUS,
+    SpecialKey_Fast: NX_KEYTYPE_FAST,
+    SpecialKey_Rewind: NX_KEYTYPE_REWIND
+]

@@ -7,6 +7,7 @@
 //
 
 import JoyConSwift
+import InputMethodKit
 
 extension JoyCon.BatteryStatus {
     static let stringMap: [JoyCon.BatteryStatus: String] = [
@@ -199,9 +200,27 @@ class GameController {
             if config.keyCode >= 0 {
                 metaKeyEvent(config: config, keyDown: true)
                 
-                let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: true)
-                event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
-                event?.post(tap: .cghidEventTap)
+                if let systemKey = systemDefinedKey[Int(config.keyCode)] {
+                    let mousePos = NSEvent.mouseLocation
+                    let flags = NSEvent.ModifierFlags(rawValue: 0x0a00)
+                    let data1 = Int((systemKey << 16) | 0x0a00)
+                    
+                    let ev = NSEvent.otherEvent(
+                        with: .systemDefined,
+                        location: mousePos,
+                        modifierFlags: flags,
+                        timestamp: ProcessInfo().systemUptime,
+                        windowNumber: 0,
+                        context: nil,
+                        subtype: Int16(NX_SUBTYPE_AUX_CONTROL_BUTTONS),
+                        data1: data1,
+                        data2: -1)
+                    ev?.cgEvent?.post(tap: .cghidEventTap)
+                } else {
+                    let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: true)
+                    event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
+                    event?.post(tap: .cghidEventTap)
+                }
             }
         
             if config.mouseButton >= 0 {
@@ -237,11 +256,29 @@ class GameController {
             let source = CGEventSource(stateID: .hidSystemState)
             
             if config.keyCode >= 0 {
+                if let systemKey = systemDefinedKey[Int(config.keyCode)] {
+                    let mousePos = NSEvent.mouseLocation
+                    let flags = NSEvent.ModifierFlags(rawValue: 0x0b00)
+                    let data1 = Int((systemKey << 16) | 0x0b00)
+                    
+                    let ev = NSEvent.otherEvent(
+                        with: .systemDefined,
+                        location: mousePos,
+                        modifierFlags: flags,
+                        timestamp: ProcessInfo().systemUptime,
+                        windowNumber: 0,
+                        context: nil,
+                        subtype: Int16(NX_SUBTYPE_AUX_CONTROL_BUTTONS),
+                        data1: data1,
+                        data2: -1)
+                    ev?.cgEvent?.post(tap: .cghidEventTap)
+                } else {
                     let event = CGEvent(keyboardEventSource: source, virtualKey: CGKeyCode(config.keyCode), keyDown: false)
                     event?.flags = CGEventFlags(rawValue: CGEventFlags.RawValue(config.modifiers))
                     event?.post(tap: .cghidEventTap)
+                }
                     
-                    metaKeyEvent(config: config, keyDown: false)
+                metaKeyEvent(config: config, keyDown: false)
             }
 
             if config.mouseButton >= 0 {

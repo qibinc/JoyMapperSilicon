@@ -20,7 +20,7 @@ let keyCodeList: [Int] = [
     kVK_Space,
     kVK_Delete,
     kVK_Escape,
-    kVK_CapsLock,
+    // kVK_CapsLock,
     kVK_RightShift,
     kVK_RightOption,
     kVK_RightControl,
@@ -70,7 +70,7 @@ let keyCodeList: [Int] = [
     kVK_JIS_Underscore,
     kVK_JIS_Eisu,
     kVK_JIS_Kana,
-    kVK_Help,
+    // kVK_Help,
     kVK_Home,
     kVK_PageUp,
     kVK_PageDown,
@@ -79,7 +79,15 @@ let keyCodeList: [Int] = [
     kVK_LeftArrow,
     kVK_RightArrow,
     kVK_DownArrow,
-    kVK_UpArrow
+    kVK_UpArrow,
+    SpecialKey_BrightnessUp,
+    SpecialKey_BrightnessDown,
+    // SpecialKey_NumLock,
+    SpecialKey_Play,
+    SpecialKey_Next,
+    SpecialKey_Previous,
+    SpecialKey_Fast,
+    SpecialKey_Rewind
 ]
 
 let keyCells: [NSComboBoxCell] = {

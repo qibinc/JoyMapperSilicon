@@ -81,3 +81,14 @@ func getKeyName(keyCode: UInt16) -> String {
     
     return name.uppercased()
 }
+
+/** Get the frontmost winodow ID. Currently not used. */
+func getFrontmostWinodowNumber() -> Int? {
+    let app = NSWorkspace.shared.frontmostApplication
+    guard let pidInt32 = app?.processIdentifier else { return nil }
+    let pid = Int64(pidInt32)
+    guard let windowList = CGWindowListCopyWindowInfo(.optionAll, kCGNullWindowID) as? [NSDictionary] else { return nil }
+    let window = windowList.first { ($0[kCGWindowOwnerPID] as? Int64 ?? -1) == pid }
+
+    return window?[kCGWindowNumber] as? Int
+}
