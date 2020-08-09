@@ -31,7 +31,9 @@ let buttonNames: [JoyCon.Button: String] = [
     .LeftSL: "Left SL",
     .LeftSR: "Left SR",
     .RightSL: "Right SL",
-    .RightSR: "Right SR"
+    .RightSR: "Right SR",
+    .Start: "Start",
+    .Select: "Select",
 ]
 let directionNames: [JoyCon.StickDirection: String]  = [
     .Up: "Up",
@@ -45,7 +47,18 @@ let rightStickName = NSLocalizedString("Right Stick", comment: "Right Stick")
 let controllerButtons: [JoyCon.ControllerType: [JoyCon.Button]] = [
     .JoyConL: [.Up, .Right, .Down, .Left, .LeftSL, .LeftSR, .L, .ZL, .Minus, .Capture, .LStick],
     .JoyConR: [.A, .B, .X, .Y, .RightSL, .RightSR, .R, .ZR, .Plus, .Home, .RStick],
-    .ProController: [.A, .B, .X, .Y, .L, .ZL, .R, .ZR, .Up, .Right, .Down, .Left, .Minus, .Plus, .Capture, .Home, .LStick, .RStick]
+    .ProController: [.A, .B, .X, .Y, .L, .ZL, .R, .ZR, .Up, .Right, .Down, .Left, .Minus, .Plus, .Capture, .Home, .LStick, .RStick],
+    .FamicomController1: [.A, .B, .L, .R, .Up, .Right, .Down, .Left, .Start, .Select],
+    .FamicomController2: [.A, .B, .L, .R, .Up, .Right, .Down, .Left],
+    .SNESController: [.A, .B, .X, .Y, .L, .ZL, .R, .ZR, .Up, .Right, .Down, .Left, .Start, .Select],
+]
+let numSticks: [JoyCon.ControllerType: Int] = [
+    .JoyConL: 1,
+    .JoyConR: 1,
+    .ProController: 2,
+    .FamicomController1: 0,
+    .FamicomController2: 0,
+    .SNESController: 0
 ]
 let stickerDirections: [JoyCon.StickDirection] = [
     .Up, .Right, .Down, .Left
@@ -87,6 +100,10 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
         guard let buttons = controllerButtons[controller.type] else { return 0 }
         guard let config = self.selectedKeyConfig else { return 0 }
         
+        if controller.type == .unknown {
+            return 0
+        }
+        
         if let indexOfItem = item as? Int {
             let stickIndex = indexOfItem - buttons.count
 
@@ -111,13 +128,7 @@ extension ViewController: NSOutlineViewDelegate, NSOutlineViewDataSource, KeyCon
             return 0
         }
         
-        if controller.type == .JoyConL || controller.type == .JoyConR {
-            return buttons.count + 1
-        }
-        if controller.type == .ProController {
-            return buttons.count + 2
-        }
-        return 0
+        return buttons.count + (numSticks[controller.type] ?? 0)
     }
     
     func numberOfChildItemOfStick(for type: String?) -> Int {

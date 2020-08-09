@@ -22,6 +22,10 @@ let joyconRBase = NSImage(named: "joycon_right_base")!
 let joyconRBody = NSImage(named: "joycon_right_body")!
 let joyconRButton = NSImage(named: "joycon_right_button")!
 
+let famicon_1 = NSImage(named: "famicon_1")!
+let famicon_2 = NSImage(named: "famicon_2")!
+let snescon = NSImage(named: "snescon")!
+
 let unknownController = NSImage(named: "unknown_controller")!
 
 let batteryFull = NSImage(named: "battery_full")!
@@ -41,6 +45,12 @@ func GameControllerIcon(for controller: GameController) -> NSImage {
         return createJoyConLIcon(for: controller)
     case .JoyConR:
         return createJoyConRIcon(for: controller)
+    case .FamicomController1:
+        return famicon_1
+    case .FamicomController2:
+        return famicon_2
+    case .SNESController:
+        return snescon
     default:
         return unknownController
     }
