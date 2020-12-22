@@ -28,4 +28,4 @@ See [magicien's How to Use](https://github.com/magicien/JoyKeyMapper#how-to-use)
 
 ## Acknowledgement
 
-This application is heavily based on [magicien/JoyKeyMapper](https://github.com/magicien/JoyKeyMapper).
+This application is heavily based on [magicien/JoyKeyMapper](https://github.com/magicien/JoyKeyMapper). We thank them a lot for open-sourcing the [JoyKeyMapper](https://apps.apple.com/us/app/joykeymapper/id1511416593?mt=12) app. Support them if possible.
