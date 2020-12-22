@@ -225,7 +225,7 @@ class GameController {
         
             if config.mouseButton >= 0 {
                 let mousePos = NSEvent.mouseLocation
-                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
+                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.screens[0].frame.maxY - mousePos.y)
 
                 metaKeyEvent(config: config, keyDown: true)
 
@@ -283,7 +283,7 @@ class GameController {
 
             if config.mouseButton >= 0 {
                 let mousePos = NSEvent.mouseLocation
-                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.main!.frame.maxY - mousePos.y)
+                let cursorPos = CGPoint(x: mousePos.x, y: NSScreen.screens[0].frame.maxY - mousePos.y)
                 
                 var event: CGEvent?
                 if config.mouseButton == 0 {
@@ -306,8 +306,8 @@ class GameController {
             return
         }
         let mousePos = NSEvent.mouseLocation
-        let newX = min(max(0, mousePos.x + pos.x * speed), NSScreen.main!.frame.maxX)
-        let newY = min(max(0, NSScreen.main!.frame.maxY - mousePos.y - pos.y * speed), NSScreen.main!.frame.maxY)
+        let newX = min(max(0, mousePos.x + pos.x * speed), NSScreen.screens[0].frame.maxX)
+        let newY = min(max(0, NSScreen.screens[0].frame.maxY - mousePos.y - pos.y * speed), NSScreen.screens[0].frame.maxY)
         
         let newPos = CGPoint(x: newX, y: newY)
         
