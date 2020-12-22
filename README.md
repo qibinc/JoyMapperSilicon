@@ -1,5 +1,5 @@
 # JoyMapperSilicon
-Nintendo Joy-Con / Pro Controller Mapper for Apple silicon
+Nintendo Joy-Con / Pro Controller Mapper for Apple silicon (also works on Intel-based macOS Big Sur)
 
 ## Advantages v.s. alternatives
 
