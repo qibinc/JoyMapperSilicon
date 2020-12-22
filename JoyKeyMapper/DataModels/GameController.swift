@@ -306,8 +306,8 @@ class GameController {
             return
         }
         let mousePos = NSEvent.mouseLocation
-        let newX = mousePos.x + pos.x * speed
-        let newY = NSScreen.main!.frame.maxY - mousePos.y - pos.y * speed
+        let newX = min(max(0, mousePos.x + pos.x * speed), NSScreen.main!.frame.maxX)
+        let newY = min(max(0, NSScreen.main!.frame.maxY - mousePos.y - pos.y * speed), NSScreen.main!.frame.maxY)
         
         let newPos = CGPoint(x: newX, y: newY)
         
@@ -322,7 +322,8 @@ class GameController {
             let event = CGEvent(mouseEventSource: source, mouseType: .otherMouseDragged, mouseCursorPosition: newPos, mouseButton: .center)
             event?.post(tap: .cghidEventTap)
         } else {
-            CGDisplayMoveCursorToPoint(CGMainDisplayID(), newPos)
+            let event = CGEvent(mouseEventSource: source, mouseType: .mouseMoved, mouseCursorPosition: newPos, mouseButton: .left)
+            event?.post(tap: .cghidEventTap)
         }
     }
     
