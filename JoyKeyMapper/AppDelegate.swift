@@ -11,7 +11,7 @@ import ServiceManagement
 import UserNotifications
 import JoyConSwift
 
-let helperAppID: CFString = "jp.0spec.JoyKeyMapperLauncher" as CFString
+let helperAppID: CFString = "cn.qibinc.JoyMapperSiliconLauncher" as CFString
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNotificationCenterDelegate {
