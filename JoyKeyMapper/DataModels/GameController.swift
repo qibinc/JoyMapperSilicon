@@ -343,7 +343,55 @@ class GameController {
             if let config = self.currentLStickConfig[oldDirection] {
                 self.buttonReleaseHandler(config: config)
             }
+            self.stick45DegreeRelease(newDirection: newDirection, oldDirection: oldDirection, stickConfig: self.currentLStickConfig)
             if let config = self.currentLStickConfig[newDirection] {
+                self.buttonPressHandler(config: config)
+            }
+            self.stick45DegreePress(newDirection: newDirection, oldDirection: oldDirection, stickConfig: self.currentLStickConfig)
+        }
+    }
+
+    func stick45DegreeRelease(newDirection: JoyCon.StickDirection, oldDirection: JoyCon.StickDirection, stickConfig: [JoyCon.StickDirection:KeyMap]) {
+        if oldDirection == JoyCon.StickDirection.UpLeft || oldDirection == JoyCon.StickDirection.UpRight {
+            if let config = stickConfig[JoyCon.StickDirection.Up] {
+                self.buttonReleaseHandler(config: config)
+            }
+        }
+        if oldDirection == JoyCon.StickDirection.DownLeft || oldDirection == JoyCon.StickDirection.DownRight {
+            if let config = stickConfig[JoyCon.StickDirection.Down] {
+                self.buttonReleaseHandler(config: config)
+            }
+        }
+        if oldDirection == JoyCon.StickDirection.UpLeft || oldDirection == JoyCon.StickDirection.DownLeft {
+            if let config = stickConfig[JoyCon.StickDirection.Left] {
+                self.buttonReleaseHandler(config: config)
+            }
+        }
+        if oldDirection == JoyCon.StickDirection.UpRight || oldDirection == JoyCon.StickDirection.DownRight {
+            if let config = stickConfig[JoyCon.StickDirection.Right] {
+                self.buttonReleaseHandler(config: config)
+            }
+        }
+    }
+
+    func stick45DegreePress(newDirection: JoyCon.StickDirection, oldDirection: JoyCon.StickDirection, stickConfig: [JoyCon.StickDirection:KeyMap]) {
+        if newDirection == JoyCon.StickDirection.UpLeft || newDirection == JoyCon.StickDirection.UpRight {
+            if let config = stickConfig[JoyCon.StickDirection.Up] {
+                self.buttonPressHandler(config: config)
+            }
+        }
+        if newDirection == JoyCon.StickDirection.DownLeft || newDirection == JoyCon.StickDirection.DownRight {
+            if let config = stickConfig[JoyCon.StickDirection.Down] {
+                self.buttonPressHandler(config: config)
+            }
+        }
+        if newDirection == JoyCon.StickDirection.UpLeft || newDirection == JoyCon.StickDirection.DownLeft {
+            if let config = stickConfig[JoyCon.StickDirection.Left] {
+                self.buttonPressHandler(config: config)
+            }
+        }
+        if newDirection == JoyCon.StickDirection.UpRight || newDirection == JoyCon.StickDirection.DownRight {
+            if let config = stickConfig[JoyCon.StickDirection.Right] {
                 self.buttonPressHandler(config: config)
             }
         }
@@ -354,9 +402,11 @@ class GameController {
             if let config = self.currentRStickConfig[oldDirection] {
                 self.buttonReleaseHandler(config: config)
             }
+            self.stick45DegreeRelease(newDirection: newDirection, oldDirection: oldDirection, stickConfig: self.currentRStickConfig)
             if let config = self.currentRStickConfig[newDirection] {
                 self.buttonPressHandler(config: config)
             }
+            self.stick45DegreePress(newDirection: newDirection, oldDirection: oldDirection, stickConfig: self.currentRStickConfig)
         }
     }
 
